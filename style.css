@@ -4,16 +4,27 @@ body {
 
 img {
     position: absolute;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .state-img {
     z-index: 10;
 }
-.state-img:hover {
+.city-img {
+    z-index: 15;
+}
+.state-img:hover, .city-img:hover {
     filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg);
 }
 #state-ventspils {
     margin: 18.4% 0% 0% 28.05%;
+}
+#city-ventspils {
+    margin: 21.2% 0% 0% 29.5%;
 }
 #state-kuldiga {
     margin: 24% 0% 0% 28.4%;
@@ -21,6 +32,9 @@ img {
 }
 #state-liepaja {
     margin: 26.58% 0% 0% 24.7%;
+}
+#city-liepaja {
+    margin: 31.9% 0% 0% 25.6%;
 }
 #state-talsi {
     margin: 17.35% 0% 0% 33.4%;
@@ -38,12 +52,21 @@ img {
 #state-jelgava {
     margin: 28.35% 0% 0% 41.9%;
 }
+#city-jelgava {
+    margin: 30.98% 0% 0% 43.612%;
+}
 #state-limbazi {
     margin: 14.5% 0% 0% 48%;
 }
 #state-riga {
     margin: 22.35% 0% 0% 42.15%;
     z-index: 9;
+}
+#city-jurmala {
+    margin: 27.4% 0% 0% 43.6%;
+}
+#city-riga {
+    margin: 27.3% 0% 0% 46.4%;
 }
 #state-bauska {
     margin: 30.6% 0% 0% 44.95%;
@@ -82,12 +105,19 @@ img {
 }
 #state-rezekne {
     margin: 29% 0% 0% 64.9%;
+    z-index: 11;
+}
+#city-rezekne {
+    margin: 32.55% 0% 0% 68.5%;
 }
 #state-preili {
     margin: 32.3% 0% 0% 60.6%;
 }
 #state-daugavpils {
     margin: 36.75% 0% 0% 58.7%;
+}
+#city-daugavpils {
+    margin: 40.35% 0% 0% 63.45%;
 }
 #state-ludza {
     margin: 28.03% 0% 0% 68.34%;
