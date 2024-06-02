@@ -29,6 +29,11 @@ document.addEventListener("DOMContentLoaded", function() {
         state.path.addEventListener("click", function() { // Attach click event listener to each state's path element
             selectedStateElem.innerHTML = state.name;
             selectedStateRegion.innerHTML = state.region;
+            if (state.ownedBy === "sov") {
+                selectedStateElem.style.color = "red";
+            } else {
+                selectedStateElem.style.color = "green";
+            };
         });
     });
 });

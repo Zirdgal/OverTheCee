@@ -11,6 +11,9 @@
     <title>PRLV</title>
 </head>
 <body>
+    <nav id="resource-container">
+        <p>your resource count: 0 😂😂😂</p>
+    </nav>
     <section class="map-container"> 
         <!-- Lithuania -->
         <div class="country-container" id="container-lithuania">
@@ -185,21 +188,29 @@
     <aside id="sidebar-container">
         <div id="sidebar-full-container">
             <div id="sidebar-top-half-container">
-                <h1>Current Deck:</h1>
-                <button>See Deck</button>
-            </div>
-            <div id="sidebar-bottom-half-container">
                 <h1 id="selected-state-text">{Selected State}</h1>
                 <p id="selected-state-region">{Selected State Region}</p>
                 <div id="selected-state-actions">
-                    <button>Action.1</button>
-                    <button>Action.2</button>
-                    <button>Action.3</button>
+                    <button class="selected-state-action-buttons" id="selected-state-action-button-1"></button>
+                </div>
+            </div>
+            <div id="sidebar-bottom-half-container">
+                <h1>Current Deck:</h1>
+                <div id="card-container">
+                    <button class="card-button" id="march-card"><img draggable="false" src="../../img/cards/march.png"></button>
                 </div>
             </div>
         </div>
         <button id="sidebar-button"><</button>
     </aside>
+    <div id="modal-container">
+        <div id="modal-content">
+            <button id="modal-btn-1">March 2</button>
+            <button id="modal-btn-2">Recruit 2</button>
+            <p id="modal-text"></p>
+        </div>
+    </div>
     <script type="module" src="../../scripts/sidebar-script.js"></script>
+    <script type="module" src="../../scripts/card-handler-script.js"></script>
 </body>
 </html>
