@@ -1,8 +1,6 @@
 body, html {
-    margin: 25px;
     background-color: black;
     color: white;
-    overflow: hidden;
     height: 100%;
 }
 img {
@@ -12,4 +10,7 @@ img {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+}
+a {
+    color: lightblue;
 }
