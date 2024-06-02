@@ -1,3 +1,5 @@
+// Sidebar Movement
+
 const btn = document.getElementById("sidebar-button");
 const sideBarContent = document.getElementById("sidebar-full-container");
 
@@ -14,3 +16,21 @@ btn.onclick = function moveSideBar() {
         sideBarState = true;
     }
 };
+
+// State Selection
+
+const selectedStateElem = document.getElementById("selected-state-text");
+const selectedStateRegion = document.getElementById("selected-state-region");
+
+import { states } from "../data/stateData.js";
+
+document.addEventListener("DOMContentLoaded", function() {
+    states.forEach(state => {
+        state.path.addEventListener("click", function() { // Attach click event listener to each state's path element
+            selectedStateElem.innerHTML = state.name;
+            selectedStateRegion.innerHTML = state.region;
+        });
+    });
+});
+
+
