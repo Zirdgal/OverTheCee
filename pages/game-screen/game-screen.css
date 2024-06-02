@@ -1,0 +1,234 @@
+
+body, html {
+    background-image: url(../../img/water.png);
+    background-color: #334957;
+    background-position: left top; 
+    background-repeat: no-repeat; 
+}
+
+
+.state-img:hover,
+.city-img:hover {
+    filter: sepia(60%);
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.state-container, .state-img, .city-img, .unit-img {
+    position: absolute;
+}
+.unit-img {
+    height: 4vh;
+    width: 2.25vw;
+    z-index: 20;
+    top: 5vh;
+    left: 2.5vw;
+    pointer-events: none;
+}
+.state-img {
+    z-index: 10;
+    margin: 0;
+}
+.city-img {
+    z-index: 15;
+    margin: 0;
+}
+
+#container-ventspils {
+    margin: 18.4% 0% 0% 28.05%;
+}
+#city-ventspils {
+    top: 5vh;
+    left: 1.4vw;
+}
+
+#container-kuldiga {
+    margin: 24% 0% 0% 28.4%;
+    z-index: 11;
+}
+
+#container-liepaja {
+    margin: 26.58% 0% 0% 24.7%;
+}
+#city-liepaja {
+    top: 9.4vh;
+    left: 0.94vw;
+}
+
+#container-talsi {
+    margin: 17.35% 0% 0% 33.4%;
+}
+
+#container-saldus {
+    margin: 27.7% 0% 0% 31.95%;
+    z-index: 12;
+}
+
+#container-tukums {
+    margin: 23% 0% 0% 35.5%;
+}
+
+#container-dobele {
+    margin: 29.3% 0% 0% 36.45%;
+}
+
+#container-jelgava {
+    margin: 28.35% 0% 0% 41.9%;
+}
+#city-jelgava {
+    top: 4.7vh;
+    left: 1.75vw;
+}
+#unit-jelgava {
+    top: 6.5vh;
+    left: 1vw;
+}
+
+#container-limbazi {
+    margin: 14.5% 0% 0% 48%;
+}
+#unit-limbazi {
+    left: 1.5vw;
+}
+
+#container-riga {
+    margin: 22.35% 0% 0% 42.15%;
+    z-index: 9;
+}
+#city-jurmala {
+    top: 9vh;
+    left: 1.5vw;
+    z-index: 10;
+}
+#city-riga {
+    top: 8.8vh;
+    left: 4.3vw;
+    z-index: 10;
+}
+#unit-riga {
+    left: 7vw;
+}
+
+#container-bauska {
+    margin: 30.6% 0% 0% 44.95%;
+}
+
+#container-valmiera {
+    margin: 13.45% 0% 0% 51.74%;
+}
+
+#container-cesis {
+    margin: 20.6% 0% 0% 51.5%;
+}
+
+#container-ogre {
+    margin: 27.15% 0% 0% 49.15%;
+    z-index: 12;
+}
+#unit-ogre {
+    top: 2vh;
+}
+
+#container-aizkraukle {
+    margin: 29.15% 0% 0% 50.445%;
+    z-index: 11;
+}
+
+#container-valka {
+    margin: 15.35% 0% 0% 56.15%;
+}
+
+#container-aluksne {
+    margin: 18.85% 0% 0% 61.5%;
+}
+#unit-aluksne {
+    top: 2vh;
+}
+
+#container-gulbene {
+    margin: 21.8% 0% 0% 59.65%;
+}
+#unit-gulbene {
+    top: 2vh;
+}
+
+#container-madona {
+    margin: 25.6% 0% 0% 56.2%;
+}
+#unit-madona {
+    top: 3vh;
+    left: 4vw;
+}
+
+#container-jekabpils {
+    margin: 31.2% 0% 0% 55%;
+}
+
+#container-balvi {
+    margin: 22% 0% 0% 65.7%;
+}
+
+#container-rezekne {
+    margin: 29% 0% 0% 64.9%;
+    z-index: 11;
+}
+#city-rezekne {
+    top: 6.3vh;
+    left: 3.6vw;
+}
+#unit-rezekne {
+    top: 1.5vh;
+    left: 1.5vh;
+}
+
+#container-preili {
+    margin: 32.3% 0% 0% 60.6%;
+    z-index: 11;
+}
+#unit-preili {
+    top: 3vh;
+}
+
+#container-daugavpils {
+    margin: 36.75% 0% 0% 58.7%;
+}
+#city-daugavpils {
+    top: 6.3vh;
+    left: 4.7vw;
+}
+#unit-daugavpils {
+    top: 2.5vh;
+    left: 2vw;
+}
+
+#container-ludza {
+    margin: 28.03% 0% 0% 68.34%;
+}
+
+#container-kraslava {
+    margin: 35.9% 0% 0% 66.5%;
+}
+
+
+#country-lithuania {
+    top: 57vh;
+    left: 25.1vw;
+    z-index: 1;
+}
+#country-estonia {
+    top: -18vh;
+    left: 29.3vw;
+    z-index: 1;
+}
+#country-germany {
+    z-index: 0;
+    top: 66vh;
+    left: -0.5vw;
+}
+#country-ussr {
+    z-index: 0;
+    left: 51vw;
+}
