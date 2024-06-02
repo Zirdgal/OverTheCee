@@ -1,5 +1,5 @@
 const images = document.querySelectorAll(".state-img, .city-img");
-let selectedState = "cool";
+let selectedState = null;
 
 
 document.addEventListener("DOMContentLoaded", function() {
