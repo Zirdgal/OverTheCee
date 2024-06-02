@@ -30,7 +30,6 @@
         <!-- Ventspils -->
         <div class="state-container" id="container-ventspils">
             <img draggable="false" class="state-img" id="state-ventspils" src="../../img/provinces/states/friendly/state-ventspils.png">
-            <img draggable="false" class="city-img" id="city-ventspils" src="../../img/provinces/cities/friendly/city-ventspils.png">
             <img draggable="false" class="unit-img" id="unit-ventspils" src="../../img/units/friendly/1Linf-1Ginf.png">
         </div>
         
@@ -43,7 +42,6 @@
         <!-- Liepaja -->
         <div class="state-container" id="container-liepaja">
             <img draggable="false" class="state-img" id="state-liepaja" src="../../img/provinces/states/friendly/state-liepaja.png">
-            <img draggable="false" class="city-img" id="city-liepaja" src="../../img/provinces/cities/friendly/city-liepaja.png">
             <img draggable="false" class="unit-img" id="unit-liepaja" src="../../img/units/friendly/1Linf-1Ginf.png">
         </div>
         
@@ -74,7 +72,6 @@
         <!-- Jelgava -->
         <div class="state-container" id="container-jelgava">
             <img draggable="false" class="state-img" id="state-jelgava" src="../../img/provinces/states/soviet/state-jelgava.png">
-            <img draggable="false" class="city-img" id="city-jelgava" src="../../img/provinces/cities/soviet/city-generic.png">
             <img draggable="false" class="unit-img" id="unit-jelgava" src="../../img/units/soviet/enemy/1Sinf.png">
         </div>
         
@@ -87,8 +84,6 @@
         <!-- Riga -->
         <div class="state-container" id="container-riga">
             <img draggable="false" class="state-img" id="state-riga" src="../../img/provinces/states/soviet/state-riga.png">
-            <img draggable="false" class="city-img" id="city-jurmala" src="../../img/provinces/cities/soviet/city-jurmala.png">
-            <img draggable="false" class="city-img" id="city-riga" src="../../img/provinces/cities/soviet/city-generic.png">
             <img draggable="false" class="unit-img" id="unit-riga" src="../../img/units/soviet/enemy/3Sinf.png">
         </div>
 
@@ -160,7 +155,6 @@
         <!-- Rezekne -->
         <div class="state-container" id="container-rezekne">
             <img draggable="false" class="state-img" id="state-rezekne" src="../../img/provinces/states/soviet-disabled/state-rezekne.png">
-            <img draggable="false" class="city-img" id="city-rezekne" src="../../img/provinces/cities/soviet-disabled/city-generic.png">
         </div>
 
         <!-- Preili -->
@@ -171,7 +165,6 @@
         <!-- Daugavpils -->
         <div class="state-container" id="container-daugavpils">
             <img draggable="false" class="state-img" id="state-daugavpils" src="../../img/provinces/states/soviet-disabled/state-daugavpils.png">
-            <img draggable="false" class="city-img" id="city-daugavpils" src="../../img/provinces/cities/soviet-disabled/city-generic.png">
         </div>
 
         <!-- Ludza -->
@@ -192,15 +185,21 @@
     <aside id="sidebar-container">
         <div id="sidebar-full-container">
             <div id="sidebar-top-half-container">
-                <h1>Allied Forces:</h1>
-                <img class="img-flag" id="flag-latvia" src="../../img/flags/latviaFlag.svg">
+                <h1>Current Deck:</h1>
+                <button>See Deck</button>
             </div>
             <div id="sidebar-bottom-half-container">
-                <p>hewwo!</p>
+                <h1 id="selected-state-text">{Selected State}</h1>
+                <p id="selected-state-region">{Selected State Region}</p>
+                <div id="selected-state-actions">
+                    <button>Action.1</button>
+                    <button>Action.2</button>
+                    <button>Action.3</button>
+                </div>
             </div>
         </div>
         <button id="sidebar-button"><</button>
     </aside>
-    <script src="../../scripts/sidebar-script.js"></script>
+    <script type="module" src="../../scripts/sidebar-script.js"></script>
 </body>
 </html>
