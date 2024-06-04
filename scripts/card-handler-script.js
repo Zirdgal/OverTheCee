@@ -38,11 +38,6 @@ function stateSelectionModalStyle() {
     return;
 };
 
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
 
     cards.forEach(card => {
@@ -67,8 +62,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
         states.forEach(state => {
             state.path.addEventListener("click", function() {
-                if (state.ownedBy === "lat" && isCardUsed === false) {
+                
+                let totalDivs = state.latUnits + state.gerUnits + state.sovUnits;
+                console.log(totalDivs);
+
+                if (totalDivs === 5) {
                     selectedStateActionButton1.disabled = false;
+                    selectedStateActionButton2.disabled = true;
+                } else if (totalDivs === 6) {
+                    selectedStateActionButton1.disabled = true;
+                    selectedStateActionButton2.disabled = true;
+                } else {
+                    selectedStateActionButton1.disabled = false;
+                    selectedStateActionButton2.disabled = false;
+                }
+
+                if (state.ownedBy === "lat" && isCardUsed === false && totalDivs <= 6) {
                     selectedStateActionButton1.style.display = "inline-block";
                     selectedStateActionButton1.innerHTML = "Recruit 1 Latvian Division";
 
@@ -84,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         };
                     }
 
-                    selectedStateActionButton2.disabled = false;
                     selectedStateActionButton2.style.display = "inline-block";
                     selectedStateActionButton2.innerHTML = "Recruit 2 German Divisions";
 
