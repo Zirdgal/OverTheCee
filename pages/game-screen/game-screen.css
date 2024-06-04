@@ -99,11 +99,15 @@ body, html {
     top: 5vh;
     left: 1.4vw;
 }
+#lat-unit-ventspils { top: 3vh; }
+#ger-unit-ventspils { top: 7vh; }
 
 #container-kuldiga {
     margin: 24% 0% 0% 28.4%;
     z-index: 11;
 }
+#lat-unit-kuldiga { top: 3vh; }
+#ger-unit-kuldiga { top: 7vh; }
 
 #container-liepaja {
     margin: 26.58% 0% 0% 24.7%;
@@ -112,23 +116,35 @@ body, html {
     top: 9.4vh;
     left: 0.94vw;
 }
+#lat-unit-liepaja { top: 6vh; }
+#ger-unit-liepaja { top: 11vh; }
+#sov-unit-liepaja { top: 8vh; }
 
 #container-talsi {
     margin: 17.35% 0% 0% 33.4%;
 }
+#lat-unit-talsi { top: 6vh; }
+#ger-unit-talsi { top: 10vh; }
+#sov-unit-talsi { top: 8vh; }
 
 #container-saldus {
     margin: 27.7% 0% 0% 31.95%;
     z-index: 12;
 }
+#lat-unit-saldus { top: 3vh; }
+#ger-unit-saldus { top: 7vh; left: 2vw; }
 
 #container-tukums {
     margin: 23% 0% 0% 35.5%;
 }
+#lat-unit-tukums { top: 5vh; }
+#ger-unit-tukums { top: 9.5vh; left: 3.5vw; }
 
 #container-dobele {
     margin: 29.3% 0% 0% 36.45%;
 }
+#lat-unit-dobele { top: 3vh; }
+#ger-unit-dobele { top: 6vh; }
 
 #container-jelgava {
     margin: 28.35% 0% 0% 41.9%;
@@ -137,17 +153,16 @@ body, html {
     top: 4.7vh;
     left: 1.75vw;
 }
-#unit-jelgava {
-    top: 6.5vh;
-    left: 1vw;
-}
+#lat-unit-jelgava { top: 4.1vh; left: 1vw; }
+#ger-unit-jelgava { top: 8vh; left: 0.8vw; }
+#sov-unit-jelgava { top: 5vh; left: 1.5vw; }
 
 #container-limbazi {
     margin: 14.5% 0% 0% 48%;
 }
-#unit-limbazi {
-    left: 1.5vw;
-}
+#lat-unit-limbazi { top: 4vh; left: 1vw; }
+#ger-unit-limbazi { top: 8vh; left: 1.5vw; }
+#sov-unit-limbazi { top: 5vh; left: 1.25vw; }
 
 #container-riga {
     margin: 22.35% 0% 0% 42.15%;
@@ -163,64 +178,81 @@ body, html {
     left: 4.3vw;
     z-index: 10;
 }
-#unit-riga {
-    left: 7vw;
-}
+#lat-unit-riga { top: 10vh; left: 4vw; }
+#ger-unit-riga { top: 4vh; left: 7vw; }
+#sov-unit-riga { top: 6vh; left: 5vw; }
 
 #container-bauska {
     margin: 30.6% 0% 0% 44.95%;
 }
+#lat-unit-bauska { top: 1.5vh; }
+#ger-unit-bauska { top: 5vh; }
+#sov-unit-bauska { top: 3vh;  }
 
 #container-valmiera {
     margin: 13.45% 0% 0% 51.74%;
 }
+#lat-unit-valmiera { top: 2vh; left: 1vw; }
+#ger-unit-valmiera { top: 9vh; left: 2vw; }
+#sov-unit-valmiera { top: 6vh; left: 2vw; }
 
 #container-cesis {
     margin: 20.6% 0% 0% 51.5%;
 }
+#lat-unit-cesis { top: 3vh; left: 2vw; }
+#ger-unit-cesis { top: 6vh; left: 5vw; }
+#sov-unit-cesis { top: 5vh; left: 3vw; }
 
 #container-ogre {
     margin: 27.15% 0% 0% 49.15%;
     z-index: 12;
 }
-#unit-ogre {
-    top: 2vh;
-}
+#lat-unit-ogre { top: 1.3vh; left: 4vw; }
+#ger-unit-ogre { top: 4vh; left: 1.5vw; }
+#sov-unit-ogre { top: 3vh; left: 2vw; }
 
 #container-aizkraukle {
     margin: 29.15% 0% 0% 50.445%;
     z-index: 11;
 }
+#lat-unit-aizkraukle { top: 1.3vh; left: 5vw; }
+#ger-unit-aizkraukle { top: 5vh; left: 3vw; }
+#sov-unit-aizkraukle { top: 4.5vh; left: 3.5vw; }
 
 #container-valka {
     margin: 15.35% 0% 0% 56.15%;
 }
+#lat-unit-valka { top: 9vh; }
+#ger-unit-valka { top: 3.5vh; left: 1.5vw; }
+#sov-unit-valka { top: 6vh; }
 
 #container-aluksne {
     margin: 18.85% 0% 0% 61.5%;
 }
-#unit-aluksne {
-    top: 2vh;
-}
+#lat-unit-aluksne { top: 2vh; left: 2.5vw; }
+#ger-unit-aluksne { top: 3vh; left: 5.5vw; }
+#sov-unit-aluksne { top: 2.5vh; left: 4vw; }
 
 #container-gulbene {
     margin: 21.8% 0% 0% 59.65%;
 }
-#unit-gulbene {
-    top: 2vh;
-}
+#lat-unit-gulbene { top: 2.5vh; left: 1.5vw; }
+#ger-unit-gulbene { top: 3vh; left: 4vw; }
+#sov-unit-gulbene { top: 2.5vh; left: 3vw; }
 
 #container-madona {
     margin: 25.6% 0% 0% 56.2%;
 }
-#unit-madona {
-    top: 3vh;
-    left: 4vw;
-}
+#lat-unit-madona { top: 3vh; left: 2.5vw; }
+#ger-unit-madona { top: 5vh; left: 6vw; }
+#sov-unit-madona { top: 2.5vh; left: 4vw; }
 
 #container-jekabpils {
     margin: 31.2% 0% 0% 55%;
 }
+#lat-unit-jekabpils { top: 2vh; left: 3vw; }
+#ger-unit-jekabpils { top: 7vh; left: 2.5vw; }
+#sov-unit-jekabpils { top: 4vh; left: 2.5vw; }
 
 #container-balvi {
     margin: 22% 0% 0% 65.7%;
@@ -234,17 +266,10 @@ body, html {
     top: 6.3vh;
     left: 3.6vw;
 }
-#unit-rezekne {
-    top: 1.5vh;
-    left: 1.5vh;
-}
 
 #container-preili {
     margin: 32.3% 0% 0% 60.6%;
     z-index: 11;
-}
-#unit-preili {
-    top: 3vh;
 }
 
 #container-daugavpils {
@@ -253,10 +278,6 @@ body, html {
 #city-daugavpils {
     top: 6.3vh;
     left: 4.7vw;
-}
-#unit-daugavpils {
-    top: 2.5vh;
-    left: 2vw;
 }
 
 #container-ludza {
