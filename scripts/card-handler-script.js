@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 subtractResources(card.cost);
                 resetModalStyle()
-                modalBtn1.innerHTML = card.option1;
-                modalBtn2.innerHTML = card.option2;
+                modalBtn1.innerHTML = `${card.option1} ${card.option1Level}`;
+                modalBtn2.innerHTML = `${card.option2} ${card.option2Level}`;
 
                 if (card.option2 === "none") {
                     modalBtn2.style.display = "none";

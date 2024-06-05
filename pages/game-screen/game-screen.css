@@ -13,12 +13,12 @@ body, html {
 #resource-container {
     z-index: 50;
     position: absolute;
-    width: 20vw;
+    width: 15vw;
     height: 5vh;
     background-color: white;
     color: black;
 
-    left: 80vw;
+    left: 85vw;
 }
 
 
@@ -362,6 +362,7 @@ button.selected-state-action-buttons {
     height: 70%;
 }
 .card-button {
+    margin: 10% 5%;
     width: 10vw;
     height: 25vh;
     display: flex;
@@ -372,7 +373,7 @@ button.selected-state-action-buttons {
     background: none;
 }
 .card-button img {
-    width: 35%;
+    width: 45%;
     height: auto;
     max-height: 100%;
     pointer-events: none;
