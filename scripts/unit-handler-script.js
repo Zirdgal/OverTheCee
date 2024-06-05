@@ -32,7 +32,7 @@ function updateUnitImageForState(state, unitType) {
     }
 }
 export function updateAllUnitImages() {
-    // for every ventspilsData in states =>
+    // for every state =>
     states.forEach(state => { // saves state as its own variable
         // check every Latvian german and soviet union 
         ['latUnits', 'gerUnits', 'sovUnits'].forEach(unitType => { // saves unit type
