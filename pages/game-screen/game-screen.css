@@ -377,4 +377,5 @@ button.selected-state-action-buttons {
     height: auto;
     max-height: 100%;
     pointer-events: none;
+    border-radius: 10px;
 }
