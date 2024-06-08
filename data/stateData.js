@@ -1,18 +1,22 @@
 const ventspilsData = { 
     name: "Ventspils", path: document.getElementById("state-ventspils"), region: "Kurzeme", category: "state", ownedBy: "lat", 
-    latUnits: 1, gerUnits: 1, sovUnits: 0
+    latUnits: 1, gerUnits: 1, sovUnits: 0,
+    adjacentState1: "Kuldīga", adjacentState2: "Liepāja", adjacentState3: "Talsi"
 };
 const kuldigaData = { 
     name: "Kuldīga", path: document.getElementById("state-kuldiga"), region: "Kurzeme", category: "state", ownedBy: "lat", 
-    latUnits: 1, gerUnits: 1, sovUnits: 0 
+    latUnits: 1, gerUnits: 1, sovUnits: 0 ,
+    adjacentState1: "Ventspils", adjacentState2: "Talsi", adjacentState3: "Tukums", adjacentState4: "Saldus", adjacentState5: "Liepāja"
 };
 const liepajaData = { 
     name: "Liepāja", path: document.getElementById("state-liepaja"), region: "Kurzeme", category: "state", ownedBy: "lat", 
-    latUnits: 1, gerUnits: 1, sovUnits: 0
+    latUnits: 1, gerUnits: 1, sovUnits: 0,
+    adjacentState1: "Ventspils", adjacentState2: "Kuldīga", adjacentState3: "Saldus"
 };
 const talsiData = { 
     name: "Talsi", path: document.getElementById("state-talsi"), region: "Kurzeme", category: "state", ownedBy: "sov", 
-    latUnits: 0, gerUnits: 0, sovUnits: 3 
+    latUnits: 0, gerUnits: 0, sovUnits: 3,
+    adjacentState1: "Ventspils", adjacentState2: "Kuldīga", adjacentState3: "Tukums"
 };
 const saldusData = { 
     name: "Saldus", path: document.getElementById("state-saldus"), region: "Kurzeme", category: "state", ownedBy: "sov", 
