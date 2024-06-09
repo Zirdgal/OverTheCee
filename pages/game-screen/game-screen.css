@@ -1,4 +1,9 @@
 
+@font-face {
+    font-family: rubik-custom-font;
+    src: url(../../font/Rubik-Regular.ttf);
+}
+
 body, html {
     margin: 0;
     overflow: hidden;
@@ -13,14 +18,31 @@ body, html {
 #resource-container {
     z-index: 50;
     position: absolute;
-    width: 15vw;
+    display: flex;
+    flex-direction: row;
+    user-select: none;
+    width: 45vw;
     height: 5vh;
     background-color: white;
     color: black;
-
-    left: 85vw;
+    left: 55vw;
+    border-radius: 0px 0px 0px 10px;
+}
+div.resource-block {
+    height:100%;
+    width: 6.25%;
+    border: solid black 1px;
+    background-color: #888;
+    font-family: rubik-custom-font;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 2vh;
 }
 
+#resource-block-2 {
+    background-color: lightgray;
+}
 
 
 
@@ -307,11 +329,6 @@ body, html {
 
 
 
-.img-flag {
-    height: 5%;
-    width: 20%;
-}
-
 
 #sidebar-container {
     position: absolute;
@@ -333,6 +350,9 @@ body, html {
     height: 100%;
     width: 5%;
     left: 95vw;
+}
+#sidebar-button:hover {
+    cursor: pointer;
 }
 
 #sidebar-top-half-container {
