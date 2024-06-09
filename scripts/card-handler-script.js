@@ -51,6 +51,7 @@ function stateSelectionModalStyle() { // I use this function later so i dont nee
 };
 
 
+
 document.addEventListener("DOMContentLoaded", function() {
 
     cards.forEach(card => {
@@ -175,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                             state.path.addEventListener("click", function() { // When a state img file is clicked...
                                 
-                                let totalDivs = state.latUnits + state.gerUnits + state.sovUnits; // save a variable of the clicked states total divisions
+                                totalDivs = state.latUnits + state.gerUnits + state.sovUnits; // save a variable of the clicked states total divisions
                                 console.log(totalDivs); // log it into console for uhhh debugging reasons :3
                 
                                 if (totalDivs === 5) { // if the totalDivs is EXACTLY equal to 5
@@ -234,6 +235,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                                                 if (totalDivs === 6 ) {
                                                     selectedStateActionButton1.disabled = true;
+                                                    selectedStateActionButton2.disabled = true;
+                                                } else if (totalDivs === 5 ) {
                                                     selectedStateActionButton2.disabled = true;
                                                 }
 
