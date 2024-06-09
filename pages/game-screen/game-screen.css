@@ -383,11 +383,13 @@ input.selected-state-action-input {
 
 #card-container {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     height: 70%;
 }
 .card-button {
-    margin: 10% 5%;
-    width: 10vw;
+    margin: 5% 5%;
+    width: 9.3vw;
     height: 25vh;
     display: flex;
     justify-content: center;
@@ -397,7 +399,7 @@ input.selected-state-action-input {
     background: none;
 }
 .card-button img {
-    width: 45%;
+    width: 42.5%;
     height: auto;
     max-height: 100%;
     pointer-events: none;
