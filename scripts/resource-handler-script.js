@@ -31,6 +31,12 @@ function updateResources() {
     if (resourceCount > 0 && resourceCount <= allResourceObj.length) {
         allResourceObj[resourceCount - 1].style.backgroundColor = "lightgray";
     }
+
+    if (resourceCount === 0) {
+        allResourceObj.forEach(obj => {
+            obj.style.backgroundColor = "lightcoral";
+        })
+    }
 }
 
 export function addResources(addedResources) {
