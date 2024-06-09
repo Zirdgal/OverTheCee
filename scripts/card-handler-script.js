@@ -1,10 +1,10 @@
 import { resourceCount, addResources, subtractResources } from "./resource-handler-script.js";
 import { updateAllUnitImages } from "./unit-handler-script.js";
+import { handleCombat } from "./combat-handler-script.js";
 import { cards } from "../data/cardData.js"
 import { states } from "../data/stateData.js";
 
-
-let adjacentState = null;
+// this is all for movement idk why it just is
 let totalDivs = null;
 let totalRequestedDivs = null;
 let latRequestedDivs = null;
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         stateSelectionModalStyle() // Change the Modals to allow you to click on the state
 
                         let isCardUsed = false;
-                        const abortController = new AbortController();
+                        const abortController = new AbortController(); 
 
                         states.forEach(state => {
 
@@ -143,6 +143,9 @@ document.addEventListener("DOMContentLoaded", function() {
                                                                         states.forEach(state => {
                                                                             state.path.style.filter = "brightness(1.0)";
                                                                         });
+                                                                        if (adjacentState.ownedBy === "sov") {
+                                                                            handleCombat(adjacentState);
+                                                                        }
                                                                     }
                                                                 };
                                                             })(adjacentState);
