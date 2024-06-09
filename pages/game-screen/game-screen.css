@@ -363,7 +363,10 @@ div.resource-block {
     flex-direction: column;
     align-items: center;
 }
-
+#home-button {
+    position: absolute;
+    top: 2vh;
+}
 button.selected-state-action-buttons {
     display: none;
 }
