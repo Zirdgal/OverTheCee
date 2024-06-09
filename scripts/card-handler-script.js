@@ -205,6 +205,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                                                 if (totalDivs === 6 ) {
                                                     selectedStateActionButton1.disabled = true;
+                                                    selectedStateActionButton2.disabled = true;
                                                 }
 
                                                 updateAllUnitImages(); //  import { updateAllUnitImages } from "./unit-handler-script.js"; this is from there not here
@@ -228,6 +229,14 @@ document.addEventListener("DOMContentLoaded", function() {
                                             if (recruitCounter < level) { // Check if the counter is less than the level
                                                 recruitCounter++; // Increment the counter
                                                 state.gerUnits += 2; // Increment the number of latvian units by 1
+
+                                                totalDivs = state.latUnits + state.gerUnits;
+
+                                                if (totalDivs === 6 ) {
+                                                    selectedStateActionButton1.disabled = true;
+                                                    selectedStateActionButton2.disabled = true;
+                                                }
+
                                                 updateAllUnitImages(); //  import { updateAllUnitImages } from "./unit-handler-script.js"; this is from there not here
                     
                                                 // Hide buttons and modal if max recruits reached
