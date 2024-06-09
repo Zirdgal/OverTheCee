@@ -4,7 +4,11 @@ import { cards } from "../data/cardData.js"
 import { states } from "../data/stateData.js";
 
 
-
+let adjacentState = null;
+let totalDivs = null;
+let totalRequestedDivs = null;
+let latRequestedDivs = null;
+let gerRequestedDivs = null;
 
 // modal elements
 const modal = document.getElementById("modal-container");
@@ -16,6 +20,11 @@ const modalText = document.getElementById("modal-text");
 // Selected State Actions
 const selectedStateActionButton1 = document.getElementById("selected-state-action-button-1");
 const selectedStateActionButton2 = document.getElementById("selected-state-action-button-2");
+
+const selectedStateActionText = document.getElementById("selected-state-action-text-container");
+
+const selectedStateActionInput1 = document.getElementById("selected-state-action-input-1");
+const selectedStateActionInput2 = document.getElementById("selected-state-action-input-2");
 
 
 function resetModalStyle() { // I use this function later so i dont need to rewrite all 7 lines of code for this :3
@@ -36,42 +45,120 @@ function stateSelectionModalStyle() { // I use this function later so i dont nee
     modalContent.style.marginTop = "5%";
     modalBtn1.style.display = "none";
     modalBtn2.style.display = "none";
-    modalText.innerHTML = "Please select a state..."
+    modalText.innerHTML = "Please select a state...";
     // Change the Modals to allow you to click on the state
     return;
 };
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
     cards.forEach(card => {
         card.path.addEventListener("click", function() {
 
+            let antiReSelectRule = false;
+            selectedStateActionButton1.disabled = false; // enable it
+            selectedStateActionButton2.disabled = false; // for both of the buttons :3
+
             if (card.cost <= resourceCount) {// Bassically look at EVEYR SINGLE Card you got and then when clicked show modal (options page)
 
-                subtractResources(card.cost);
-                resetModalStyle()
-                modalBtn1.innerHTML = `${card.option1} ${card.option1Level}`;
-                modalBtn2.innerHTML = `${card.option2} ${card.option2Level}`;
+                subtractResources(card.cost); // imported script to handle the resource loss
+                resetModalStyle() // the modal style that gives two options
+                modalBtn1.innerHTML = `${card.option1} ${card.option1Level}`; // changes the text to the card option and its level (example): March 2
+                modalBtn2.innerHTML = `${card.option2} ${card.option2Level}`; // changes the text to the card option and its level (example): March 2
 
-                if (card.option2 === "none") {
-                    modalBtn2.style.display = "none";
+                if (card.option2 === "none") { // if the card.option2 is none
+                    modalBtn2.style.display = "none"; // SHOW NOTHING!
                 } else {
-                    modalBtn2.style.display = "inline-block";
+                    modalBtn2.style.display = "inline-block"; // all other times its okay :thumbs_up+1:
                 }
 
                 const actions = { // This is all here to do the action stuff
 
                     "March": (level) => {
-                        console.log(`March action with level ${level}`);
-                        modal.style.display = "none"; // TESTING MODE DOES NOTHING AS OF CURRENT
+                        stateSelectionModalStyle() // Change the Modals to allow you to click on the state
+
+                        let isCardUsed = false;
+                        const abortController = new AbortController();
+
+                        states.forEach(state => {
+
+                            state.path.addEventListener("click", function() {
+
+                                if (state.ownedBy === "lat" && isCardUsed === false && antiReSelectRule === false) {
+                                    modalText.innerHTML = "Please select division count that you will move!";
+                                    selectedStateActionInput1.style.display = "inline-block";
+                                    selectedStateActionInput2.style.display = "inline-block";
+                                    selectedStateActionText.style.display = "flex";
+                                    selectedStateActionButton1.style.display = "block";
+                                    selectedStateActionButton1.disabled = false;
+                                    selectedStateActionButton1.innerHTML = "CONFIRM";
+    
+                                    totalDivs = Number(state.latUnits) + Number(state.gerUnits) + Number(state.sovUnits); // save a variable of the clicked states total divisions
+                                    console.log(totalDivs); // log it into console for uhhh debugging reasons :3
+    
+                                    selectedStateActionButton1.onclick = function() {
+
+                                        if (antiReSelectRule === false) {
+                                            antiReSelectRule == true;
+    
+
+                                            latRequestedDivs = Number(selectedStateActionInput1.value);
+                                            gerRequestedDivs = Number(selectedStateActionInput2.value);
+
+                                            totalRequestedDivs = latRequestedDivs + gerRequestedDivs;
+                                            console.log(totalRequestedDivs); // log it into console for uhhh debugging reasons :3
+        
+                                            if (totalRequestedDivs < totalDivs && totalRequestedDivs != 0) {
+                                                stateSelectionModalStyle();
+                                                selectedStateActionInput1.style.display = "none";
+                                                selectedStateActionInput2.style.display = "none";
+                                                selectedStateActionText.style.display = "none";
+                                                selectedStateActionButton1.style.display = "none";
+        
+                                                Object.keys(state).forEach(key => {
+                                                    if (key.startsWith("adjacentState")) {
+                                                        let adjacentStateName = state[key];
+                                                        adjacentState = states.find(s => s.name === adjacentStateName);
+        
+                                                        if (adjacentState) {
+                                                            console.log(adjacentState);
+                                                            adjacentState.path.style.filter = "brightness(1.5)";
+                                                        };
+                                                    };
+                                                });
+        
+                                                adjacentState.path.onclick = function() {
+                                                    if ( isCardUsed === false ) {
+                                                        isCardUsed = true;
+                                                        state.latUnits -= latRequestedDivs;
+                                                        adjacentState.latUnits += latRequestedDivs;
+                                                        state.gerUnits -= gerRequestedDivs;
+                                                        adjacentState.gerUnits += gerRequestedDivs;
+                                                        updateAllUnitImages();
+                                                        modal.style.display = "none";
+                                                        abortController.abort();
+                                                        states.forEach(state => {
+                                                            state.path.style.filter = "brightness(1.0)";
+                                                        })
+                                                    }
+                                                };
+        
+        
+                                            } else {
+                                                modalText.innerHTML = "Try again (total div count must be higher than 0 and lower than total)!";
+                                            };
+                                        }
+                                    };
+                                };
+                            }, { signal: abortController.signal });
+                        });
                     },
 
                     "Recruit": (level) => {
 
                         let isCardUsed = false;
-
-                        console.log(`Recruit action with level ${level}`);
-                        // this is here so the eventlisteners dont screw me over
+                        let recruitCounter = 0;
             
                         stateSelectionModalStyle() // Change the Modals to allow you to click on the state
                 
@@ -101,30 +188,42 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                                     selectedStateActionButton1.onclick = function() { // when button 1 is clicked
                                         if (state.ownedBy === "lat") { // if the state is Latvian (you can click on other states in this screen, thus this check has been added)
-                                            isCardUsed = true; // use the card
-                                            state.latUnits++; // increment the number of latvian units by 1
-                                            updateAllUnitImages(); //  import { updateAllUnitImages } from "./unit-handler-script.js"; this is from there not here
-                
-                                            selectedStateActionButton1.style.display = "none"; // hide button 1
-                                            selectedStateActionButton2.style.display = "none"; // hide button 2
-                                            modal.style.display = "none"; // hide the overlay text
+                                            if (recruitCounter < level) { // Check if the counter is less than the level
+                                                recruitCounter++; // Increment the counter
+                                                state.latUnits++; // Increment the number of latvian units by 1
+                                                updateAllUnitImages(); //  import { updateAllUnitImages } from "./unit-handler-script.js"; this is from there not here
+                    
+                                                // Hide buttons and modal if max recruits reached
+                                                if (recruitCounter >= level) {
+                                                    isCardUsed = true; // Use the card
+                                                    selectedStateActionButton1.style.display = "none"; // Hide button 1
+                                                    selectedStateActionButton2.style.display = "none"; // Hide button 2
+                                                    modal.style.display = "none"; // Hide the overlay text
+                                                };
+                                            };
                                         };
-                                    }
+                                    };
                 
                                     selectedStateActionButton2.style.display = "inline-block"; // show button 2
                                     selectedStateActionButton2.innerHTML = "Recruit 2 German Divisions"; // change its text
                 
                                     selectedStateActionButton2.onclick = function() { // when button 1 is clicked
-                                        if (state.ownedBy === "lat") { // if the state is Latvian...
-                                            isCardUsed = true; // use the card
-                                            state.gerUnits += 2; // add 2 to the current gerUnits number
-                                            updateAllUnitImages(); //  import { updateAllUnitImages } from "./unit-handler-script.js"; this is from there not here
-                
-                                            selectedStateActionButton1.style.display = "none"; // hide button 1
-                                            selectedStateActionButton2.style.display = "none"; // hide button 2
-                                            modal.style.display = "none"; // hide the overlay text
+                                        if (state.ownedBy === "lat") { // if the state is Latvian (you can click on other states in this screen, thus this check has been added)
+                                            if (recruitCounter < level) { // Check if the counter is less than the level
+                                                recruitCounter++; // Increment the counter
+                                                state.gerUnits += 2; // Increment the number of latvian units by 1
+                                                updateAllUnitImages(); //  import { updateAllUnitImages } from "./unit-handler-script.js"; this is from there not here
+                    
+                                                // Hide buttons and modal if max recruits reached
+                                                if (recruitCounter >= level) {
+                                                    isCardUsed = true; // Use the card
+                                                    selectedStateActionButton1.style.display = "none"; // Hide button 1
+                                                    selectedStateActionButton2.style.display = "none"; // Hide button 2
+                                                    modal.style.display = "none"; // Hide the overlay text
+                                                };
+                                            };
                                         };
-                                    }
+                                    };
                                 } else {
                                     selectedStateActionButton1.disabled = true; // if the player clicks on a soviet state, hide the options
                                     selectedStateActionButton2.disabled = true; // for both of the buttons :3
@@ -134,25 +233,24 @@ document.addEventListener("DOMContentLoaded", function() {
                     },
 
                     "Resource": (level) => {
-                        console.log(`Resource action with level ${level}`);
-                        addResources(level);
+                        addResources(level); // imported script to handle the addition of resources
                         modal.style.display = "none"; // hide the overlay text
                     },
 
                     "Medic": (level) => {
                         console.log(`Medic action with level ${level}`);
-                        modal.style.display = "none"; // TESTING MODE DOES NOTHING AS OF CURRENT
+                        modal.style.display = "none"; // hide the overlay text
                     },
 
                     "None": (level) => {
                         console.log(`None??? action with level ${level}`);
-                        modal.style.display = "none"; // TESTING MODE DOES NOTHING AS OF CURRENT
+                        modal.style.display = "none"; // hide the overlay text
 
                     }
                 };
 
                 function handleAction(option, level) {
-                    if (actions[option]) {
+                    if (actions[option]) { // i do not know how this code works :3
                         actions[option](level);
                     } else {
                         console.error(`Action for option "${option}" not found`);
