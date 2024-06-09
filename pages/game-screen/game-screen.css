@@ -35,21 +35,17 @@ body, html {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  #modal-content {
+}
+
+/* Modal Content/Box */
+#modal-content {
     background-color: #fefefe;
     color: black;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 33%; /* Could be more or less, depending on screen size */
-  }
-
-
-
-
+}
 
 
 
@@ -349,6 +345,14 @@ body, html {
 }
 
 button.selected-state-action-buttons {
+    display: none;
+}
+#selected-state-action-text-container {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+}
+input.selected-state-action-input {
     display: none;
 }
 
