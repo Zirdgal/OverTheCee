@@ -86,6 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             state.path.addEventListener("click", function() {
 
                                 if (state.ownedBy === "lat" && isCardUsed === false && antiReSelectRule === false) {
+
+                                    isCardUsed = false;
+
                                     modalText.innerHTML = "Please select division count that you will move!";
                                     selectedStateActionInput1.style.display = "inline-block";
                                     selectedStateActionInput2.style.display = "inline-block";
@@ -100,49 +103,52 @@ document.addEventListener("DOMContentLoaded", function() {
                                     selectedStateActionButton1.onclick = function() {
 
                                         if (antiReSelectRule === false) {
-                                            antiReSelectRule == true;
-    
-
                                             latRequestedDivs = Number(selectedStateActionInput1.value);
                                             gerRequestedDivs = Number(selectedStateActionInput2.value);
 
                                             totalRequestedDivs = latRequestedDivs + gerRequestedDivs;
                                             console.log(totalRequestedDivs); // log it into console for uhhh debugging reasons :3
+                                            console.log(totalDivs);
         
-                                            if (totalRequestedDivs < totalDivs && totalRequestedDivs != 0) {
+                                            if (totalRequestedDivs < totalDivs && totalRequestedDivs != 0 && totalDivs != 1) {
                                                 stateSelectionModalStyle();
                                                 selectedStateActionInput1.style.display = "none";
                                                 selectedStateActionInput2.style.display = "none";
                                                 selectedStateActionText.style.display = "none";
                                                 selectedStateActionButton1.style.display = "none";
+                                                antiReSelectRule = true;
         
                                                 Object.keys(state).forEach(key => {
                                                     if (key.startsWith("adjacentState")) {
                                                         let adjacentStateName = state[key];
-                                                        adjacentState = states.find(s => s.name === adjacentStateName);
-        
+                                                        let adjacentState = states.find(s => s.name === adjacentStateName);
+                                                
                                                         if (adjacentState) {
                                                             console.log(adjacentState);
                                                             adjacentState.path.style.filter = "brightness(1.5)";
-                                                        };
-                                                    };
-                                                });
-        
-                                                adjacentState.path.onclick = function() {
-                                                    if ( isCardUsed === false ) {
-                                                        isCardUsed = true;
-                                                        state.latUnits -= latRequestedDivs;
-                                                        adjacentState.latUnits += latRequestedDivs;
-                                                        state.gerUnits -= gerRequestedDivs;
-                                                        adjacentState.gerUnits += gerRequestedDivs;
-                                                        updateAllUnitImages();
-                                                        modal.style.display = "none";
-                                                        abortController.abort();
-                                                        states.forEach(state => {
-                                                            state.path.style.filter = "brightness(1.0)";
-                                                        })
+                                                
+                                                            // Create a closure to preserve the current adjacentState
+                                                            (function(adjacentState) {
+                                                                adjacentState.path.onclick = function() {
+                                                                    if (isCardUsed === false) {
+                                                                        isCardUsed = true;
+                                                                        antiReSelectRule = false;
+                                                                        state.latUnits -= latRequestedDivs;
+                                                                        adjacentState.latUnits += latRequestedDivs;
+                                                                        state.gerUnits -= gerRequestedDivs;
+                                                                        adjacentState.gerUnits += gerRequestedDivs;
+                                                                        updateAllUnitImages();
+                                                                        modal.style.display = "none";
+                                                                        abortController.abort();
+                                                                        states.forEach(state => {
+                                                                            state.path.style.filter = "brightness(1.0)";
+                                                                        });
+                                                                    }
+                                                                };
+                                                            })(adjacentState);
+                                                        }
                                                     }
-                                                };
+                                                });
         
         
                                             } else {
