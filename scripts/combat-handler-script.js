@@ -1,5 +1,5 @@
 import { updateAllUnitImages } from "./unit-handler-script.js";
-import { updateFriendlyStateImages } from "./state-updation-script.js";
+import { updateFriendlyStateImages, updateLithuania } from "./state-updation-script.js";
 
 export function handleCombat(state) {
     console.log("yes we have ran! (combat-handler-script.js)");
@@ -70,6 +70,7 @@ export function handleCombat(state) {
     if (state.sovUnits === 0 && state.latUnits >= 1 || state.gerUnits >= 1) {
         state.ownedBy = "lat";
         updateFriendlyStateImages();
+        updateLithuania();
     }
 
     updateAllUnitImages();
