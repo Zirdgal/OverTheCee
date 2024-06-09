@@ -196,10 +196,17 @@ document.addEventListener("DOMContentLoaded", function() {
                                     selectedStateActionButton1.innerHTML = "Recruit 1 Latvian Division"; // change its text
                 
                                     selectedStateActionButton1.onclick = function() { // when button 1 is clicked
-                                        if (state.ownedBy === "lat") { // if the state is Latvian (you can click on other states in this screen, thus this check has been added)
+                                        if (state.ownedBy === "lat" && totalDivs <= 5) { // if the state is Latvian (you can click on other states in this screen, thus this check has been added)
                                             if (recruitCounter < level) { // Check if the counter is less than the level
                                                 recruitCounter++; // Increment the counter
                                                 state.latUnits++; // Increment the number of latvian units by 1
+
+                                                totalDivs = state.latUnits + state.gerUnits;
+
+                                                if (totalDivs === 6 ) {
+                                                    selectedStateActionButton1.disabled = true;
+                                                }
+
                                                 updateAllUnitImages(); //  import { updateAllUnitImages } from "./unit-handler-script.js"; this is from there not here
                     
                                                 // Hide buttons and modal if max recruits reached
@@ -217,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                     selectedStateActionButton2.innerHTML = "Recruit 2 German Divisions"; // change its text
                 
                                     selectedStateActionButton2.onclick = function() { // when button 1 is clicked
-                                        if (state.ownedBy === "lat") { // if the state is Latvian (you can click on other states in this screen, thus this check has been added)
+                                        if (state.ownedBy === "lat" && totalDivs <= 4) { // if the state is Latvian (you can click on other states in this screen, thus this check has been added)
                                             if (recruitCounter < level) { // Check if the counter is less than the level
                                                 recruitCounter++; // Increment the counter
                                                 state.gerUnits += 2; // Increment the number of latvian units by 1
