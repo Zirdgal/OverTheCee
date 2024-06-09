@@ -4,10 +4,6 @@ function getUnitImageFilename(unitCount) { // Function to get the correct image 
     return `${unitCount}inf.png`;
 }
 
-function sanitizeStateName(stateName) {
-    return stateName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9]/g, "").toLowerCase(); // Remove any special characters from the latvian alphabet
-}
-
 function updateUnitImageForState(state, unitType) {
 
     const unitCount = state[unitType]; // it takes ventspilsData.latUnits for example it just saves the amount of the units of the specific type here
@@ -20,9 +16,8 @@ function updateUnitImageForState(state, unitType) {
     };
 
     const unitTypePrefix = unitTypePrefixMap[unitType]; // Look if its lat ger or sov
-    const sanitizedStateName = sanitizeStateName(state.name); // remove latvian characters
 
-    const unitElementId = `${unitTypePrefix}-unit-${sanitizedStateName}`; // Create ID of the <img> tag
+    const unitElementId = `${unitTypePrefix}-unit-${state.id}`; // Create ID of the <img> tag
     const unitImgElement = document.getElementById(unitElementId); // Get the ID of the <img> tag
 
     if (unitImgElement) { // If it exists, then change it
