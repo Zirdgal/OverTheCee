@@ -67,7 +67,14 @@ div.resource-block {
     border: 1px solid #888;
     width: 33%; /* Could be more or less, depending on screen size */
 }
-
+#enemy-card-img {
+    position: absolute;
+    display: none;
+    height: 50vh;
+    top: 25vh;
+    left: 40vw;
+    width: auto;
+}
 
 
 
