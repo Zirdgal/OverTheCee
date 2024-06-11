@@ -51,6 +51,16 @@ function stateSelectionModalStyle() { // I use this function later so i dont nee
     return;
 };
 
+export function updateCardStates() {
+    cards.forEach(card => {
+        if (card.used === false) {
+            card.path.style.display = "block";
+        } else {
+            card.path.style.display = "none";
+        }
+    });
+};
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -147,12 +157,18 @@ document.addEventListener("DOMContentLoaded", function() {
                                                                             updateAllUnitImages();
                                                                             modal.style.display = "none";
                                                                             abortController.abort();
+                                                                            
                                                                             states.forEach(state => {
                                                                                 state.path.style.filter = "brightness(1.0)";
                                                                             });
+
+
                                                                             if (adjacentState.ownedBy === "sov") {
                                                                                 handleCombat(adjacentState);
                                                                             }
+
+                                                                            card.used = true;
+                                                                            updateCardStates();
                                                                         }
                                                                     };
                                                                 })(adjacentState);
@@ -224,6 +240,9 @@ document.addEventListener("DOMContentLoaded", function() {
                                                         selectedStateActionButton1.style.display = "none"; // Hide button 1
                                                         selectedStateActionButton2.style.display = "none"; // Hide button 2
                                                         modal.style.display = "none"; // Hide the overlay text
+
+                                                        card.used = true;
+                                                        updateCardStates();
                                                     };
                                                 };
                                             };
@@ -256,6 +275,9 @@ document.addEventListener("DOMContentLoaded", function() {
                                                         selectedStateActionButton1.style.display = "none"; // Hide button 1
                                                         selectedStateActionButton2.style.display = "none"; // Hide button 2
                                                         modal.style.display = "none"; // Hide the overlay text
+
+                                                        card.used = true;
+                                                        updateCardStates();
                                                     };
                                                 };
                                             };
@@ -272,12 +294,16 @@ document.addEventListener("DOMContentLoaded", function() {
                             addResources(level); // imported script to handle the addition of resources
                             modal.style.display = "none"; // hide the overlay text
                             isTheCardSelected = false;
+                            card.used = true;
+                            updateCardStates();
                         },
      
                         "Medic": (level) => {
                             console.log(`Medic action with level ${level}`);
                             modal.style.display = "none"; // hide the overlay text
                             isTheCardSelected = false;
+                            card.used = true;
+                            updateCardStates();
                         },
      
                         "None": (level) => {
