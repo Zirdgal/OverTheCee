@@ -17,6 +17,7 @@ const modalContent = document.getElementById("modal-content");
 const modalBtn1 = document.getElementById("modal-btn-1");
 const modalBtn2 = document.getElementById("modal-btn-2");
 const modalText = document.getElementById("modal-text");
+const enemyCardImage = document.getElementById("enemy-card-img");
 
 // Selected State Actions
 const selectedStateActionButton1 = document.getElementById("selected-state-action-button-1");
@@ -36,6 +37,7 @@ function resetModalStyle() { // I use this function later so i dont need to rewr
     modal.style.display = "block";
     modalBtn1.style.display = "inline-block";
     modalBtn2.style.display = "inline-block";
+    enemyCardImage.style.display = "none";
     // Sets all the modal styles back to default!
     return;
 };
@@ -47,6 +49,7 @@ function stateSelectionModalStyle() { // I use this function later so i dont nee
     modalBtn1.style.display = "none";
     modalBtn2.style.display = "none";
     modalText.innerHTML = "Please select a state...";
+    enemyCardImage.style.display = "none";
     // Change the Modals to allow you to click on the state
     return;
 };
