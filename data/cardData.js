@@ -6,3 +6,11 @@ const karlisUlmanisData = { name: "Kārlis Ulmanis", used: false, path: document
 
 
 export const cards = [ marchData, karlisUlmanisData, recruitData ];
+
+
+
+const placeholderData = { name: "Placeholder", used: false };
+
+
+export const enemyCards = [ placeholderData ];
+
