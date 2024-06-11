@@ -14,7 +14,6 @@ body, html {
     line-height: 0%;
 }
 
-
 #resource-container {
     z-index: 50;
     position: absolute;
@@ -394,17 +393,15 @@ input.selected-state-action-input {
     margin: 3vh 1vw;
     width: 9.3vw;
     height: 25vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border: none;
     padding: 0;
     background: none;
 }
 .card-button img {
-    width: 42.5%;
+    position: relative;
+    margin: 0px;
     height: auto;
-    max-height: 100%;
+    max-height: 110%;
     pointer-events: none;
     border-radius: 10px;
 }
