@@ -339,6 +339,7 @@ div.resource-block {
 #sidebar-container {
     position: absolute;
     display: flex;
+    pointer-events: none;
     top: 0;
     left: 0;
     margin: 0;
@@ -351,11 +352,13 @@ div.resource-block {
     width: 95%;
     height: 100%;
     background-color: black;
+    pointer-events: all;
 }
 #sidebar-button {
     height: 100%;
     width: 5%;
     left: 95vw;
+    pointer-events: all;
 }
 #sidebar-button:hover {
     cursor: pointer;
@@ -364,6 +367,7 @@ div.resource-block {
 #end-turn-button {
     width: 4vw;
     height: 5vh;
+    pointer-events: all;
 }
 #sidebar-top-half-container {
     width: 100%;
@@ -372,6 +376,7 @@ div.resource-block {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 #home-button {
     position: absolute;
