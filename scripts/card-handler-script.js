@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if ( isTheCardSelected === false ) {
             
+                console.log("isTheCardSelected is indeed false");
 
                 isTheCardSelected = true;
                 let antiReSelectRule = false;
@@ -80,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 selectedStateActionButton2.disabled = false; // for both of the buttons :3
      
                 if (card.cost <= resourceCount) {// Bassically look at EVEYR SINGLE Card you got and then when clicked show modal (options page)
+                    console.log("we have enough resources!");
      
                     subtractResources(card.cost); // imported script to handle the resource loss
                     resetModalStyle() // the modal style that gives two options
@@ -331,7 +333,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     modalBtn2.onclick = function() { // if the option 2 is clicked
                         handleAction(card.option2, card.option2Level);
                     };
-                };
+                } else {
+                    isTheCardSelected = false;
+                }
             }
         });
     });

@@ -42,9 +42,13 @@ function updateResources() {
 export function addResources(addedResources) {
     resourceCount = Math.min(allResourceObj.length, resourceCount + Number(addedResources));
     updateResources();
+    console.log("current resource count:");
+    console.log(resourceCount);
 }
 
 export function subtractResources(subtractedResources) {
     resourceCount = Math.max(0, resourceCount - Number(subtractedResources));
     updateResources();
+    console.log("current resource count:");
+    console.log(resourceCount);
 }
