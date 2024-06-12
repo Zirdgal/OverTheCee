@@ -421,3 +421,57 @@ input.selected-state-action-input {
     pointer-events: none;
     border-radius: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#full-screen-cover {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    z-index: 999;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+
+/*
+ANIMATION!
+
+*/
+
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 1;
+        pointer-events: all;
+    }
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+
