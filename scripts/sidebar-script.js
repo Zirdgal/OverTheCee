@@ -21,21 +21,29 @@ btn.onclick = function moveSideBar() {
 
 const selectedStateElem = document.getElementById("selected-state-text");
 const selectedStateRegion = document.getElementById("selected-state-region");
-
 import { states } from "../data/stateData.js";
 
-document.addEventListener("DOMContentLoaded", function() {
+function updateSelectedStateUI(state) {
+    selectedStateElem.innerHTML = state.name;
+    selectedStateRegion.innerHTML = state.region;
+    if (state.ownedBy === "sov") {
+        selectedStateElem.style.color = "red";
+    } else {
+        selectedStateElem.style.color = "green";
+    }
+}
+
+function attachStateClickListeners() {
     states.forEach(state => {
-        state.path.addEventListener("click", function() { // Attach click event listener to each state's path element
-            selectedStateElem.innerHTML = state.name;
-            selectedStateRegion.innerHTML = state.region;
-            if (state.ownedBy === "sov") {
-                selectedStateElem.style.color = "red";
-            } else {
-                selectedStateElem.style.color = "green";
-            };
+        state.path.addEventListener("click", function() {
+            updateSelectedStateUI(state); // Update selected state UI
         });
     });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    attachStateClickListeners();
 });
 
-
+// Export the function to allow re-attachment after state replacement
+export { attachStateClickListeners };
