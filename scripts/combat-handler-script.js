@@ -77,3 +77,9 @@ export function handleCombat(state) {
     console.log(state);
     return;
 }
+
+export function removeUnits(state, amount) {
+    state.sovUnits -= amount;
+    updateAllUnitImages();
+    return;
+}
