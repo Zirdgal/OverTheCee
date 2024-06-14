@@ -452,9 +452,7 @@ input.selected-state-action-input {
     align-items: center;
     font-size: 40px;
 
-    animation: fadeInAnimation ease 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+
 }
 
 

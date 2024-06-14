@@ -20,6 +20,8 @@ const modalBtn2 = document.getElementById("modal-btn-2");
 const modalText = document.getElementById("modal-text");
 const enemyCardImage = document.getElementById("enemy-card-img");
 
+const fullScreenCover = document.getElementById("full-screen-cover");
+
 // Selected State Actions
 const selectedStateActionButton1 = document.getElementById("selected-state-action-button-1");
 const selectedStateActionButton2 = document.getElementById("selected-state-action-button-2");
@@ -72,6 +74,9 @@ export function updateCardStates() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+
+    fullScreenCover.style.animation = "fadeInAnimation 3s ease 1 forwards";
+
     console.log("Document Loaded");
 
     cards.forEach(card => {
