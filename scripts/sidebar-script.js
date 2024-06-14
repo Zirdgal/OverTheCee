@@ -3,7 +3,7 @@
 const btn = document.getElementById("sidebar-button");
 const sideBarContent = document.getElementById("sidebar-full-container");
 
-let sideBarState = true;
+let sideBarState = false;
 
 btn.onclick = function moveSideBar() {
     if (sideBarState === true) {
