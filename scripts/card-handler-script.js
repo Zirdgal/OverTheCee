@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                     console.log(`Total requested divisions: ${totalRequestedDivs}`);
                                                     console.log(`Total divisions: ${totalDivs}`);
                     
-                                                    if (totalRequestedDivs < totalDivs && totalRequestedDivs > 0) {
+                                                    if (totalRequestedDivs <= totalDivs && totalRequestedDivs > 0) {
                                                         stateSelectionModalStyle();
                                                         selectedStateActionInput1.style.display = "none";
                                                         selectedStateActionInput2.style.display = "none";
@@ -178,33 +178,57 @@ document.addEventListener("DOMContentLoaded", function() {
                                                                             if (!isCardUsed) {
                                                                                 console.log("isCardUsed === false");
                     
-                                                                                states.forEach(state => {
-                                                                                    state.path.style.filter = "brightness(1.0)";
-                                                                                });
-                                                                                clearStateListeners(states); // Clear old event listeners
-                                                                                state.latUnits -= latRequestedDivs;
-                                                                                adjacentState.latUnits += latRequestedDivs;
-                                                                                state.gerUnits -= gerRequestedDivs;
-                                                                                adjacentState.gerUnits += gerRequestedDivs;
-                                                                                updateAllUnitImages();
-                                                                                antiReSelectRule = false;
+                                                                                let adjacentStateTotalDivs = adjacentState.latUnits + adjacentState.gerUnits + adjacentState.sovUnits;
+                                                                                console.log(`Adjacent state total divisions: ${adjacentStateTotalDivs}`);
                     
-                                                                                if (adjacentState.ownedBy === "sov") {
-                                                                                    handleCombat(adjacentState);
-                                                                                }
+                                                                                if (adjacentStateTotalDivs < 6) {
+                                                                                    let maxMovableDivs = 6 - adjacentStateTotalDivs;
+                                                                                    let actualLatMovableDivs = Math.min(latRequestedDivs, maxMovableDivs);
+                                                                                    let actualGerMovableDivs = Math.min(gerRequestedDivs, maxMovableDivs - actualLatMovableDivs);
                     
-                                                                                if (marchRecursion < level - 1) { // Properly check recursion level
-                                                                                    console.log(`marchRecursion (${marchRecursion}) < level (${level})`);
-                                                                                    marchRecursion++;
-                                                                                    selectState(); // Recursive call
+                                                                                    state.latUnits -= actualLatMovableDivs;
+                                                                                    adjacentState.latUnits += actualLatMovableDivs;
+                                                                                    state.gerUnits -= actualGerMovableDivs;
+                                                                                    adjacentState.gerUnits += actualGerMovableDivs;
+                    
+                                                                                    console.log(`Moved ${actualLatMovableDivs} Latvian divisions and ${actualGerMovableDivs} German divisions`);
+                    
+                                                                                    states.forEach(state => {
+                                                                                        state.path.style.filter = "brightness(1.0)";
+                                                                                    });
+
+                                                                                    updateAllUnitImages();
+                                                                                    antiReSelectRule = false;
+                    
+                                                                                    if (adjacentState.ownedBy === "sov") {
+                                                                                        handleCombat(adjacentState);
+                                                                                    }
+                    
+                                                                                    if (marchRecursion < level - 1) { // Properly check recursion level
+                                                                                        console.log(`marchRecursion (${marchRecursion}) < level (${level})`);
+                                                                                        marchRecursion++;
+                                                                                        selectState(); // Recursive call
+                                                                                    } else {
+                                                                                        // Reset variables and finalize card usage
+                                                                                        isCardUsed = true;
+                                                                                        isTheCardSelected = false;
+                                                                                        modal.style.display = "none";
+                                                                                        abortController.abort(); // Abort ongoing operations
+                                                                                        card.used = true;
+                                                                                        updateCardStates();
+                                                                                    }
                                                                                 } else {
-                                                                                    // Reset variables and finalize card usage
+                                                                                    modalText.innerHTML = "The selected state is already full!";
                                                                                     isCardUsed = true;
                                                                                     isTheCardSelected = false;
+                                                                                    antiReSelectRule = false;
                                                                                     modal.style.display = "none";
                                                                                     abortController.abort(); // Abort ongoing operations
-                                                                                    card.used = true;
-                                                                                    updateCardStates();
+                    
+                                                                                    states.forEach(state => {
+                                                                                        state.path.style.filter = "brightness(1.0)";
+                                                                                    });
+                                                                                    clearStateListeners(states); // Clear old event listeners
                                                                                 }
                                                                             }
                                                                         };
