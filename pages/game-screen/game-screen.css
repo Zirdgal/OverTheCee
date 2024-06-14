@@ -403,7 +403,9 @@ input.selected-state-action-input {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 70%;
+    height: 75vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .card-button {
     margin: 2vh 1vw;
