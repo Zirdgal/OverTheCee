@@ -389,6 +389,10 @@ document.addEventListener("DOMContentLoaded", function() {
                                         // Remove the event listener to avoid duplicate handlers
                                         state.path.removeEventListener("click", onClick);
                                     });
+                                } else {
+                                    addResources(card.cost);
+                                    modal.style.display = "none";
+                                    isTheCardSelected = false;
                                 }
                             });
                         }
