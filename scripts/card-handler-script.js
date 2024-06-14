@@ -1,6 +1,6 @@
 import { resourceCount, addResources, subtractResources } from "./resource-handler-script.js";
 import { updateAllUnitImages } from "./unit-handler-script.js";
-import { handleCombat } from "./combat-handler-script.js";
+import { handleCombat, removeUnits } from "./combat-handler-script.js";
 import { cards } from "../data/cardData.js";
 import { states } from "../data/stateData.js";
 import { attachStateClickListeners } from "./sidebar-script.js"; // Import the function
@@ -355,7 +355,39 @@ document.addEventListener("DOMContentLoaded", function() {
                             console.log(`None??? action with level ${level}`);
                             modal.style.display = "none";
                             isTheCardSelected = false;
+                        },
+
+                        // IRREGULAR ACTIONS
+                        "alliedShips": (level) => {
+                            console.log(`alliedShips action with level ${level}`);
+                            stateSelectionModalStyle();
+                            
+                            states.forEach(state => {
+                                if (state.isCoastal === true && state.ownedBy === "sov") {
+                                    state.path.style.filter = "brightness(1.5)";
+                        
+                                    state.path.addEventListener("click", function onClick() {
+                                        // Reset filters on all states
+                                        states.forEach(s => {
+                                            s.path.style.filter = "brightness(1.0)";
+                                        });
+                        
+                                        // Perform the action
+                                        removeUnits(state, 3);
+                        
+                                        // Clear the modal and reset flags
+                                        modal.style.display = "none";
+                                        isTheCardSelected = false;
+                                        card.used = true;
+                                        updateCardStates();
+                        
+                                        // Remove the event listener to avoid duplicate handlers
+                                        state.path.removeEventListener("click", onClick);
+                                    });
+                                }
+                            });
                         }
+
                     };
 
                     function handleAction(option, level) {
