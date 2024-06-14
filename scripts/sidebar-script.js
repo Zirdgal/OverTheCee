@@ -2,6 +2,7 @@
 
 const btn = document.getElementById("sidebar-button");
 const sideBarContent = document.getElementById("sidebar-full-container");
+const endTurnButton = document.getElementById("end-turn-button");
 
 let sideBarState = false;
 
@@ -10,10 +11,12 @@ btn.onclick = function moveSideBar() {
         sideBarContent.style.display = "none";
         btn.innerHTML = ">";
         sideBarState = false;
+        endTurnButton.style.display = "block";
     } else {
         sideBarContent.style.display = "block";
         btn.innerHTML = "<";
         sideBarState = true;
+        endTurnButton.style.display = "block";
     }
 };
 
