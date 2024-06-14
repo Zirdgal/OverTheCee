@@ -110,24 +110,24 @@ document.addEventListener("DOMContentLoaded", function() {
                     const actions = {
                         "March": (level) => {
                             stateSelectionModalStyle();
-
+                    
                             let isCardUsed = false;
                             let marchRecursion = 0;
                             const abortController = new AbortController();
-
+                    
                             console.log("March action activated");
-
+                    
                             function selectState() {
                                 console.log("selectState called");
                                 states.forEach(state => {
                                     state.path.addEventListener("click", function() {
                                         console.log(`State clicked: ${state.name}`);
-
-                                        if (state.ownedBy === "lat" && !isCardUsed && !antiReSelectRule) {
+                    
+                                        if (state.ownedBy === "lat" && !state.isDisabled && !isCardUsed && !antiReSelectRule) {
                                             console.log(`Valid state selected: ${state.name}`);
-
+                    
                                             isCardUsed = false;
-
+                    
                                             modalText.innerHTML = "Please select division count that you will move!";
                                             selectedStateActionInput1.style.display = "inline-block";
                                             selectedStateActionInput2.style.display = "inline-block";
@@ -138,21 +138,21 @@ document.addEventListener("DOMContentLoaded", function() {
                                             selectedStateActionButton2.style.display = "block";
                                             selectedStateActionButton2.disabled = false;
                                             selectedStateActionButton2.innerHTML = "CANCEL";
-
+                    
                                             totalDivs = Number(state.latUnits) + Number(state.gerUnits) + Number(state.sovUnits);
                                             console.log(`Total divisions: ${totalDivs}`);
-
+                    
                                             selectedStateActionButton1.onclick = function() {
                                                 console.log("Confirm Button clicked");
-
+                    
                                                 if (!antiReSelectRule) {
                                                     latRequestedDivs = Number(selectedStateActionInput1.value);
                                                     gerRequestedDivs = Number(selectedStateActionInput2.value);
-
+                    
                                                     totalRequestedDivs = latRequestedDivs + gerRequestedDivs;
                                                     console.log(`Total requested divisions: ${totalRequestedDivs}`);
                                                     console.log(`Total divisions: ${totalDivs}`);
-
+                    
                                                     if (totalRequestedDivs < totalDivs && totalRequestedDivs > 0) {
                                                         stateSelectionModalStyle();
                                                         selectedStateActionInput1.style.display = "none";
@@ -161,23 +161,23 @@ document.addEventListener("DOMContentLoaded", function() {
                                                         selectedStateActionButton1.style.display = "none";
                                                         selectedStateActionButton2.style.display = "none";
                                                         antiReSelectRule = true;
-
+                    
                                                         Object.keys(state).forEach(key => {
                                                             if (key.startsWith("adjacentState")) {
                                                                 let adjacentStateName = state[key];
                                                                 let adjacentState = states.find(s => s.name === adjacentStateName);
-
-                                                                if (adjacentState) {
+                    
+                                                                if (adjacentState && !adjacentState.isDisabled) { // Check if adjacent state is not disabled
                                                                     console.log(`Adjacent state found: ${adjacentState.name}`);
                                                                     adjacentState.path.style.filter = "brightness(1.5)";
-
+                    
                                                                     (function(adjacentState) {
                                                                         adjacentState.path.onclick = function() {
                                                                             console.log(`Adjacent state clicked: ${adjacentState.name}`);
-
+                    
                                                                             if (!isCardUsed) {
                                                                                 console.log("isCardUsed === false");
-
+                    
                                                                                 states.forEach(state => {
                                                                                     state.path.style.filter = "brightness(1.0)";
                                                                                 });
@@ -188,11 +188,11 @@ document.addEventListener("DOMContentLoaded", function() {
                                                                                 adjacentState.gerUnits += gerRequestedDivs;
                                                                                 updateAllUnitImages();
                                                                                 antiReSelectRule = false;
-
+                    
                                                                                 if (adjacentState.ownedBy === "sov") {
                                                                                     handleCombat(adjacentState);
                                                                                 }
-
+                    
                                                                                 if (marchRecursion < level - 1) { // Properly check recursion level
                                                                                     console.log(`marchRecursion (${marchRecursion}) < level (${level})`);
                                                                                     marchRecursion++;
@@ -217,9 +217,9 @@ document.addEventListener("DOMContentLoaded", function() {
                                                     }
                                                 }
                                             };
-
+                    
                                             selectedStateActionButton2.onclick = function() {
-
+                    
                                                 selectedStateActionInput1.style.display = "none";
                                                 selectedStateActionInput2.style.display = "none";
                                                 selectedStateActionText.style.display = "none";
@@ -229,18 +229,17 @@ document.addEventListener("DOMContentLoaded", function() {
                                                 isTheCardSelected = false;
                                                 modal.style.display = "none";
                                                 abortController.abort(); // Abort ongoing operations
-
-                                                if(marchRecursion > 0) {
+                    
+                                                if (marchRecursion > 0) {
                                                     card.used = true;
                                                     updateCardStates();
                                                 }
                                             }
-
                                         }
                                     }, { signal: abortController.signal });
                                 });
                             }
-
+                    
                             selectState();
                         },
 
