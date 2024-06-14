@@ -130,6 +130,9 @@ document.addEventListener("DOMContentLoaded", function() {
                                             selectedStateActionButton1.style.display = "block";
                                             selectedStateActionButton1.disabled = false;
                                             selectedStateActionButton1.innerHTML = "CONFIRM";
+                                            selectedStateActionButton2.style.display = "block";
+                                            selectedStateActionButton2.disabled = false;
+                                            selectedStateActionButton2.innerHTML = "CANCEL";
 
                                             totalDivs = Number(state.latUnits) + Number(state.gerUnits) + Number(state.sovUnits);
                                             console.log(`Total divisions: ${totalDivs}`);
@@ -151,6 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                         selectedStateActionInput2.style.display = "none";
                                                         selectedStateActionText.style.display = "none";
                                                         selectedStateActionButton1.style.display = "none";
+                                                        selectedStateActionButton2.style.display = "none";
                                                         antiReSelectRule = true;
 
                                                         Object.keys(state).forEach(key => {
@@ -208,6 +212,25 @@ document.addEventListener("DOMContentLoaded", function() {
                                                     }
                                                 }
                                             };
+
+                                            selectedStateActionButton2.onclick = function() {
+
+                                                selectedStateActionInput1.style.display = "none";
+                                                selectedStateActionInput2.style.display = "none";
+                                                selectedStateActionText.style.display = "none";
+                                                selectedStateActionButton1.style.display = "none";
+                                                selectedStateActionButton2.style.display = "none";
+                                                isCardUsed = true;
+                                                isTheCardSelected = false;
+                                                modal.style.display = "none";
+                                                abortController.abort(); // Abort ongoing operations
+
+                                                if(marchRecursion > 0) {
+                                                    card.used = true;
+                                                    updateCardStates();
+                                                }
+                                            }
+
                                         }
                                     }, { signal: abortController.signal });
                                 });
