@@ -1,6 +1,10 @@
 #german-link {
-    color: gray;
+    color: grey;
 }
 #redarmy-link {
-    color: lightcoral;
+    color: brown;
+}
+#container-div {
+    height: 75vh;
+    width: 65vw;
 }
