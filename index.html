@@ -16,13 +16,28 @@
             <h1>Over the Cee</h1>
             <p>A "grand"-strategy game based on the board game: Latvijas Neatkarības Karš 1918-1920</p>
             <p>Play with a 16:9 monitor and on fullscreen for best experience!</p>
-            <a href="pages/inbetween.html">PLAY!</a>
+            <button id="play-button">PLAY!</button>
             <br><br><br><br>
             <a id="discord-link" href="https://discord.gg/v99n6bdAyH">Join the Discord!</a>
             <br><br>
             <a href="https://zirdgal.github.io/OverTheCeeGuide">Over the CEE Wiki!</a>
-            <p>(V.0.002-pre.4) (Latest addition: Graphics Update! )</p>
+            <p>(V.0.002-pre.5) (Latest addition: Scenario Selector! (There is only 1 scenario) )</p>
+        </div>
+        <div id="selection-container">
+            <h1 id="selection-text">Please Select a Country:</h1>
+            <div id="scneario-button-container">
+                <button class="scenario-button" id="scenario-button-1" hidden="true">1</button>
+                <button class="scenario-button" id="scenario-button-2" hidden="true">2</button>
+                <button class="scenario-button" id="scenario-button-3" hidden="true">3</button>
+            </div>
         </div>
     </section>
+
+    <div id="estonian-hitbox" class="country-hitboxes"></div>
+    <div id="latvian-hitbox" class="country-hitboxes"></div>
+    <div id="lithuanian-hitbox" class="country-hitboxes"></div>
+
+
+    <script src="index.js"></script>
 </body>
 </html>
