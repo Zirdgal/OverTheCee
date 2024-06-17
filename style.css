@@ -49,11 +49,15 @@ a {
     color: blue;
     position: relative; 
 }
-
+#play-button {
+    height: 5vh;
+    width: 5vw;
+    font-size: 2vh;
+}
 #background-img {
     position: absolute;
     z-index: 0;
-    transform: scale(1.5); /* Adjust the scale value to zoom in */
+    transform: scale(1.5); 
     left: 15vw;
     animation: sway 15s infinite alternate ease-in-out;
 }
@@ -61,13 +65,75 @@ a {
 
 @keyframes sway {
     0% {
-        transform: scale(1.5) translate(-1vw, -1vh);
+        transform: scale(1.5) translate(-0.3vw, -0.3vh);
     }
     50% {
-        transform: scale(1.5) translate(1vw, -0vh);
+        transform: scale(1.5) translate(0.3vw, -0vh);
     }
     100% {
-        transform: scale(1.5) translate(-1vw, -1vh);
+        transform: scale(1.5) translate(-0.3vw, -0.3vh);
     }
 }
+
+
+#selection-container {
+    position: absolute;
+    height: 45vh;
+    width: 40vw;
+    left: 5vw;
+    background-color: rgb(0, 0, 0, 0.4);
+    border-radius: 50px;
+    font-size: 40px;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+.country-hitboxes {
+    width: 40vw;
+    height: 30vh;
+    position: absolute;
+}
+#estonian-hitbox {
+    top: -4vh;
+    left: 65vw;
+    height: 40vh;
+    transform: rotate(15deg);
+    z-index: 10;
+    display: none;
+}
+#latvian-hitbox {
+    top: 38vh;
+    left: 60vw;
+    height: 25vh;
+    width: 45vw;
+    transform: rotate(15deg);
+    z-index: 11;
+    display: none;
+}
+#lithuanian-hitbox {
+    top: 55vh;
+    left: 60vw;
+    height: 40vh;
+    width: 20vw;
+    z-index: 10;
+    display: none;
+}
+.scenario-button-container {
+    display: flex;
+    flex-direction: row;
+}
+.scenario-button {
+    width: 8vw;
+    height: 15vh;
+    font-size: 5vh;
+}
+
 
