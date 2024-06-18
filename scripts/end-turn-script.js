@@ -14,6 +14,14 @@ const modalBtn2 = document.getElementById("modal-btn-2");
 const modalText = document.getElementById("modal-text");
 const enemyCardImage = document.getElementById("enemy-card-img");
 
+const selectedStateActionButton1 = document.getElementById("selected-state-action-button-1");
+const selectedStateActionButton2 = document.getElementById("selected-state-action-button-2");
+
+const selectedStateActionText = document.getElementById("selected-state-action-text-container");
+
+const selectedStateActionInput1 = document.getElementById("selected-state-action-input-1");
+const selectedStateActionInput2 = document.getElementById("selected-state-action-input-2");
+
 endTurnButton.onclick = function endTurn() {
 
     console.log("end turn button clicked");
@@ -25,6 +33,12 @@ endTurnButton.onclick = function endTurn() {
     modal.style.display = "block";
     modalBtn1.style.display = "none";
     modalBtn2.style.display = "none";
+
+    selectedStateActionButton1.style.display = "none";
+    selectedStateActionButton2.style.display = "none";
+    selectedStateActionText.style.display = "none";
+    selectedStateActionInput1.style.display = "none";
+    selectedStateActionInput2.style.display = "none";
 
     const updatedStates = new Set();
 
