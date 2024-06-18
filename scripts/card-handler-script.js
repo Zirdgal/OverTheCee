@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                     console.log(`Total requested divisions: ${totalRequestedDivs}`);
                                                     console.log(`Total divisions: ${totalDivs}`);
                     
-                                                    if (totalRequestedDivs <= totalDivs && totalRequestedDivs > 0) {
+                                                    if (totalRequestedDivs <= totalDivs && totalRequestedDivs > 0 && totalRequestedDivs < 6) {
                                                         stateSelectionModalStyle();
                                                         selectedStateActionInput1.style.display = "none";
                                                         selectedStateActionInput2.style.display = "none";
