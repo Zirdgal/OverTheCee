@@ -390,35 +390,42 @@ document.addEventListener("DOMContentLoaded", function() {
                             console.log(`alliedShips action with level ${level}`);
                             stateSelectionModalStyle();
                             let alliedShipsUsed = false;
-                            console.log("alliedShipsUsed:");
-                            console.log(alliedShipsUsed);
-                            states.forEach(state => {
-                                if (state.isCoastal === true && state.ownedBy === "sov" && alliedShipsUsed === false) {
-                                    console.log("alliedShipsUsed:");
-                                    console.log(alliedShipsUsed);
-                                    state.path.style.filter = "brightness(1.5)";
-                        
-                                    state.path.addEventListener("click", function onClick() {
+                         
+                            function onClick(state) {
+                                return function() {
+                                    if (!alliedShipsUsed) {
+                                        console.log(`State clicked: ${state.name}`);
                                         // Perform the action
                                         removeUnits(state, 3);
-                        
+                                        
                                         // Clear the modal and reset flags
                                         modal.style.display = "none";
                                         isTheCardSelected = false;
                                         card.used = true;
-                                        console.log("alliedShipsUsed:");
-                                        console.log(alliedShipsUsed);
                                         alliedShipsUsed = true;
                                         updateCardStates();
+                                        
                                         // Reset filters on all states
                                         states.forEach(s => {
                                             s.path.style.filter = "brightness(1.0)";
                                         });
-                                        state.path.removeEventListener("click", onClick);
-                                    });
+                         
+                                        // Remove event listeners
+                                        states.forEach(s => {
+                                            s.path.removeEventListener("click", onClick(s));
+                                        });
+                                    }
+                                };
+                            }
+                         
+                            states.forEach(state => {
+                                if (state.isCoastal === true && state.ownedBy === "sov" && !alliedShipsUsed) {
+                                    state.path.style.filter = "brightness(1.5)";
+                                    state.path.addEventListener("click", onClick(state));
                                 }
                             });
                         }
+
 
                     };
 
