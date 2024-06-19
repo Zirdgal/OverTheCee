@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
             scenarioBtn1.disabled = false;
             showScenarioBtns();
             scenarioBtn1.onclick = function() {
-                window.location.href = "./pages/inbetween.html";
+                window.location.href = "./pages/lat-scenario-1.html";
             }
         };
         lithuanianHitBox.onclick = function() {
