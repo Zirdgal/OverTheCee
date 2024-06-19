@@ -1,4 +1,3 @@
-
 const playButton = document.getElementById("play-button");
 const containerDiv = document.getElementById("container-div");
 const backgroundImg = document.getElementById("background-img");
@@ -15,7 +14,7 @@ const scenarioBtn2 = document.getElementById("scenario-button-2");
 const scenarioBtn3 = document.getElementById("scenario-button-3");
 
 function showScenarioBtns() {
-    selectionText.innerHTML = "Please select a Scenario:"
+    selectionText.innerHTML = "Please select a Scenario:";
     scenarioBtn1.hidden = false;
     scenarioBtn2.hidden = false;
     scenarioBtn2.disabled = true;
@@ -23,16 +22,18 @@ function showScenarioBtns() {
     scenarioBtn3.disabled = true;
 }
 
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
     playButton.onclick = function() {
         containerDiv.style.display = "none";
         selectionDiv.style.display = "flex";
-        backgroundImg.style.animation = "none";
-        backgroundImg.style.transform = " scale(2.5) translate(10vw, 25vh)";
-        backgroundImg.src = "./img/map-coloured.png"
+        backgroundImg.style.animation = "none"; // Stop current animation
+        backgroundImg.style.transform = "scale(2.5) translate(10vw, 25vh)";
+        backgroundImg.src = "./img/map-coloured.png";
+        
+        // Start the swayZoomed animation after image source has changed
+        setTimeout(function() {
+            backgroundImg.style.animation = "swayZoomed 15s infinite linear";
+        }, 50);
 
         estonianHitBox.style.display = "block";
         latvianHitBox.style.display = "block";
@@ -55,6 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
             selectionText.style.color = "lightgreen";
             showScenarioBtns();
             scenarioBtn1.disabled = true;
-        };a
+        };
     };
 });

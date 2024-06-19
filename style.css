@@ -65,13 +65,24 @@ a {
 
 @keyframes sway {
     0% {
-        transform: scale(1.5) translate(-0.3vw, -0.3vh);
+        transform: scale(1.5) translate(-0.3vw, -0.3vh) rotate(1deg);;
     }
     50% {
-        transform: scale(1.5) translate(0.3vw, -0vh);
+        transform: scale(1.5) translate(0.3vw, -0vh) rotate(0deg);;
     }
     100% {
-        transform: scale(1.5) translate(-0.3vw, -0.3vh);
+        transform: scale(1.5) translate(-0.3vw, -0.3vh) rotate(-1deg);;
+    }
+}
+@keyframes swayZoomed {
+    0% {
+        transform: scale(2.5) translate(10.3vw, 25.3vh) rotate(1deg);;
+    }
+    50% {
+        transform: scale(2.5) translate(10.0vw, 25vh) rotate(0deg);;
+    }
+    100% {
+        transform: scale(2.5) translate(10.3vw, 25.3vh) rotate(1deg);;
     }
 }
 
