@@ -19,6 +19,24 @@ btn.onclick = function moveSideBar() {
         endTurnButton.style.display = "block";
     }
 };
+document.body.onkeyup = function(e) {
+    if (e.key == " " ||
+        e.code == "Space" ||      
+        e.keyCode == 32      
+    ) {
+        if (sideBarState === true) {
+            sideBarContent.style.display = "none";
+            btn.innerHTML = ">";
+            sideBarState = false;
+            endTurnButton.style.display = "block";
+        } else {
+            sideBarContent.style.display = "block";
+            btn.innerHTML = "<";
+            sideBarState = true;
+            endTurnButton.style.display = "block";
+        }
+    }
+  }
 
 // State Selection
 
