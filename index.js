@@ -1,6 +1,7 @@
 const playButton = document.getElementById("play-button");
 const containerDiv = document.getElementById("container-div");
 const backgroundImg = document.getElementById("background-img");
+const backgroundImgColoured = document.getElementById("background-img-coloured");
 
 const selectionDiv = document.getElementById("selection-container");
 const selectionText = document.getElementById("selection-text");
@@ -26,14 +27,12 @@ document.addEventListener("DOMContentLoaded", function() {
     playButton.onclick = function() {
         containerDiv.style.display = "none";
         selectionDiv.style.display = "flex";
-        backgroundImg.style.animation = "none"; // Stop current animation
-        backgroundImg.style.transform = "scale(2.5) translate(10vw, 25vh)";
-        backgroundImg.src = "./img/map-coloured.png";
-        
-        // Start the swayZoomed animation after image source has changed
-        setTimeout(function() {
-            backgroundImg.style.animation = "swayZoomed 15s infinite linear";
-        }, 50);
+        backgroundImg.style.animation = "fadeoutZoom 2s forwards"; // Play fadeout animation
+        backgroundImgColoured.style.animation = "zoom 2s forwards"; // Play zoom animation
+
+        backgroundImg.addEventListener("animationend", function() {
+            backgroundImgColoured.style.animation = "swayZoomed 15s infinite alternate ease-in-out"; // Switch to swayZoomed animation after zoom completes
+        });
 
         estonianHitBox.style.display = "block";
         latvianHitBox.style.display = "block";
