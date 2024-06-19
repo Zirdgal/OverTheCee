@@ -247,7 +247,13 @@ document.addEventListener("DOMContentLoaded", function() {
                                                 selectedStateActionText.style.display = "none";
                                                 selectedStateActionButton1.style.display = "none";
                                                 selectedStateActionButton2.style.display = "none";
-                                                antiReSelectRule = false;
+                                                isCardUsed = true;
+                                                isTheCardSelected = false;
+                                                modal.style.display = "none";
+                                                abortController.abort(); 
+                                                card.used = true;
+                                                updateCardStates();
+                                                enableEndTurnButton();
                                             };
                                         }
                                     });
