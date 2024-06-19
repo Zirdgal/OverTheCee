@@ -382,7 +382,6 @@ div.resource-block {
 }
 #home-button {
     position: absolute;
-    top: 2vh;
 }
 button.selected-state-action-buttons {
     display: none;
