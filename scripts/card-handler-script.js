@@ -123,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     
                             function selectState() {
                                 console.log("selectState called");
+                                clearStateListeners(states);
                                 states.forEach(state => {
                                     state.path.addEventListener("click", function() {
                                         console.log(`State clicked: ${state.name}`);
@@ -223,17 +224,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                                                         enableEndTurnButton();
                                                                                     }
                                                                                 } else {
-                                                                                    modalText.innerHTML = "The selected state is already full!";
-                                                                                    isCardUsed = true;
-                                                                                    isTheCardSelected = false;
-                                                                                    antiReSelectRule = false;
-                                                                                    modal.style.display = "none";
-                                                                                    abortController.abort(); // Abort ongoing operations
-                    
-                                                                                    states.forEach(state => {
-                                                                                        state.path.style.filter = "brightness(1.0)";
-                                                                                    });
-                                                                                    clearStateListeners(states); // Clear old event listeners
+                                                                                    console.log("Adjacent state already has 6 or more divisions");
                                                                                 }
                                                                             }
                                                                         };
@@ -242,35 +233,28 @@ document.addEventListener("DOMContentLoaded", function() {
                                                             }
                                                         });
                                                     } else {
-                                                        modalText.innerHTML = "Try again (total div count must be higher than 0 and lower than total)!";
+                                                        console.log("Invalid division request or no divisions selected");
                                                     }
                                                 }
                                             };
                     
                                             selectedStateActionButton2.onclick = function() {
-                    
+                                                // Reset selection and UI elements
+                                                selectedStateActionInput1.value = "";
+                                                selectedStateActionInput2.value = "";
                                                 selectedStateActionInput1.style.display = "none";
                                                 selectedStateActionInput2.style.display = "none";
                                                 selectedStateActionText.style.display = "none";
                                                 selectedStateActionButton1.style.display = "none";
                                                 selectedStateActionButton2.style.display = "none";
-                                                isCardUsed = true;
-                                                isTheCardSelected = false;
-                                                modal.style.display = "none";
-                                                abortController.abort(); // Abort ongoing operations
-                    
-                                                if (marchRecursion > 0) {
-                                                    card.used = true;
-                                                    updateCardStates();
-                                                    enableEndTurnButton();
-                                                }
-                                            }
+                                                antiReSelectRule = false;
+                                            };
                                         }
-                                    }, { signal: abortController.signal });
+                                    });
                                 });
                             }
                     
-                            selectState();
+                            selectState(); // Initial call to selectState
                         },
 
                         "Recruit": (level) => {
@@ -462,3 +446,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+export { attachStateClickListeners };
