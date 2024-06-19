@@ -22,6 +22,15 @@ const selectedStateActionText = document.getElementById("selected-state-action-t
 const selectedStateActionInput1 = document.getElementById("selected-state-action-input-1");
 const selectedStateActionInput2 = document.getElementById("selected-state-action-input-2");
 
+export function disableEndTurnButton() {
+    endTurnButton.disabled = true;
+    return;
+};
+export function enableEndTurnButton() {
+    endTurnButton.disabled = false;
+    return;
+};
+
 endTurnButton.onclick = function endTurn() {
 
     console.log("end turn button clicked");

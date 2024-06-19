@@ -1,9 +1,12 @@
 import { resourceCount, addResources, subtractResources } from "./resource-handler-script.js";
 import { updateAllUnitImages } from "./unit-handler-script.js";
 import { handleCombat, removeUnits } from "./combat-handler-script.js";
+
 import { cards } from "../data/cardData.js";
 import { states } from "../data/stateData.js";
-import { attachStateClickListeners } from "./sidebar-script.js"; // Import the function
+
+import { attachStateClickListeners } from "./sidebar-script.js"; 
+import { disableEndTurnButton, enableEndTurnButton } from "./end-turn-script.js";
 
 // this is all for movement idk why it just is
 let totalDivs = null;
@@ -90,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let antiReSelectRule = false;
                 selectedStateActionButton1.disabled = false;
                 selectedStateActionButton2.disabled = false;
+                disableEndTurnButton();
 
                 if (card.cost <= resourceCount) {
                     console.log("we have enough resources!");
@@ -216,6 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                                                         abortController.abort(); // Abort ongoing operations
                                                                                         card.used = true;
                                                                                         updateCardStates();
+                                                                                        enableEndTurnButton();
                                                                                     }
                                                                                 } else {
                                                                                     modalText.innerHTML = "The selected state is already full!";
@@ -257,6 +262,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                 if (marchRecursion > 0) {
                                                     card.used = true;
                                                     updateCardStates();
+                                                    enableEndTurnButton();
                                                 }
                                             }
                                         }
@@ -317,6 +323,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                                                         card.used = true;
                                                         updateCardStates();
+                                                        enableEndTurnButton();
                                                     }
                                                 }
                                             }
@@ -351,6 +358,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                                                         card.used = true;
                                                         updateCardStates();
+                                                        enableEndTurnButton();
                                                     }
                                                 }
                                             }
@@ -369,6 +377,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             isTheCardSelected = false;
                             card.used = true;
                             updateCardStates();
+                            enableEndTurnButton();
                         },
 
                         "Medic": (level) => {
@@ -377,6 +386,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             isTheCardSelected = false;
                             card.used = true;
                             updateCardStates();
+                            enableEndTurnButton();
                         },
 
                         "None": (level) => {
@@ -404,6 +414,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                         card.used = true;
                                         alliedShipsUsed = true;
                                         updateCardStates();
+                                        enableEndTurnButton();
                                         
                                         // Reset filters on all states
                                         states.forEach(s => {
