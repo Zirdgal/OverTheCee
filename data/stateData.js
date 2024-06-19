@@ -165,3 +165,27 @@ export const states = [
     rigaData, valmieraData, cesisData, ogreData, valkaData, aluksneData, gulbeneData, madonaData, aizkraukleData, jekabpilsData,
     daugavpilsData, balviData, rezekneData, preiliData, ludzaData, kraslavaData
 ];
+
+
+let estoniaData = { 
+    name: "Estonia", id: "estonia", path: document.getElementById("country-estonia"), region: "Friendly", category: "country",
+    ownedBy: "est"
+};
+let lithuaniaData = { 
+    name: "Lithuania", id: "lithuania", path: document.getElementById("country-lithuania"), region: "Friendly", category: "country",
+    ownedBy: "lit"
+};
+let germanyData = { 
+    name: "Germany", id: "germany", path: document.getElementById("country-germany"), region: "Friendly", category: "country",
+    ownedBy: "ger"
+};
+let ussrData = { 
+    name: "Union of Soviet Socialist Republics", id: "ussr", path: document.getElementById("country-ussr"), region: "Enemey", category: "country",
+    ownedBy: "sov"
+};
+
+export const statesAndCountries = [
+    ventspilsData, kuldigaData, liepajaData, talsiData, saldusData, tukumsData, dobeleData, jelgavaData, bauskaData, limbaziData,
+    rigaData, valmieraData, cesisData, ogreData, valkaData, aluksneData, gulbeneData, madonaData, aizkraukleData, jekabpilsData,
+    daugavpilsData, balviData, rezekneData, preiliData, ludzaData, kraslavaData, estoniaData, lithuaniaData, germanyData, ussrData
+];
