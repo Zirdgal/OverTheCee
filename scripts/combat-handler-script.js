@@ -40,19 +40,14 @@ export function handleCombat(state) {
 
     // Handle case where both Latvian and German units are involved
     else {
-        // Adjust total friendly units
-        console.log("adjusting all of friendly units");
-        totalFriendlyUnits -= state.sovUnits;
+        // Calculate proportion of loss for each type of unit
+        let totalLoss = Math.min(state.sovUnits, totalFriendlyUnits);
+        let latLoss = Math.floor((state.latUnits / totalFriendlyUnits) * totalLoss);
+        let gerLoss = totalLoss - latLoss;
 
-        if (totalFriendlyUnits < 0) {
-            console.log("all friendly units are too low, resetting to 0");
-            totalFriendlyUnits = 0;
-        }
-
-        // Split the remaining friendly units evenly
-        let halfUnits = Math.floor(totalFriendlyUnits / 2);
-        state.latUnits = halfUnits;
-        state.gerUnits = totalFriendlyUnits - halfUnits;
+        state.latUnits -= latLoss;
+        state.gerUnits -= gerLoss;
+        state.sovUnits -= totalLoss;
 
         // Ensure that neither latUnits nor gerUnits goes negative
         if (state.latUnits < 0) {
@@ -61,25 +56,27 @@ export function handleCombat(state) {
         if (state.gerUnits < 0) {
             state.gerUnits = 0;
         }
-
-        // Update the state with the new unit counts
-        state.sovUnits = enemyUnits;
     }
 
+    console.log(state);
 
-    if (state.sovUnits === 0 && state.latUnits >= 1 || state.gerUnits >= 1) {
+    if (state.sovUnits === 0) {
         state.ownedBy = "lat";
-        updateFriendlyStateImages();
-        updateLithuania();
     }
+
+    console.log("Updated state ownership and unit counts:");
+    console.log(state);
 
     updateAllUnitImages();
-    console.log(state);
-    return;
+    updateFriendlyStateImages();
+    updateLithuania();
 }
 
 export function removeUnits(state, amount) {
     state.sovUnits -= amount;
+    if (state.sovUnits < 0) {
+        state.sovUnits = 0;
+    }
     updateAllUnitImages();
     return;
 }
