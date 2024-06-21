@@ -1,3 +1,9 @@
+
+@font-face {
+    font-family: crimson-custom-font;
+    src: url(font/CrimsonText-Regular.ttf);
+}
+
 body, html {
     margin: 0;
     background-color: black;
@@ -6,6 +12,7 @@ body, html {
     z-index: 1;
     overflow: hidden;
     font-size: 18px;
+    font-family: crimson-custom-font;
 }
 
 img {
