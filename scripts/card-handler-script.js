@@ -120,7 +120,7 @@
                                 stateSelectionModalStyle();
                         
                                 let isCardUsed = false;
-                                let marchRecursion = 0;
+                                let marchRecursion = 1;
                                 const abortController = new AbortController();
                         
                                 console.log("March action activated");
@@ -219,7 +219,7 @@
                                                                                             handleCombat(adjacentState);
                                                                                         }
                         
-                                                                                        if (marchRecursion < level - 1) {
+                                                                                        if (marchRecursion < level) {
                                                                                             console.log(`marchRecursion (${marchRecursion}) < level (${level})`);
                                                                                             marchRecursion++;
                                                                                             selectState();
@@ -455,6 +455,7 @@
                         };
                     } else {
                         isTheCardSelected = false;
+                        enableEndTurnButton();
                     }
                 }
             });
