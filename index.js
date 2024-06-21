@@ -14,6 +14,9 @@ const scenarioBtn1 = document.getElementById("scenario-button-1");
 const scenarioBtn2 = document.getElementById("scenario-button-2");
 const scenarioBtn3 = document.getElementById("scenario-button-3");
 
+const discordBtn = document.getElementById("discord-button");
+const wikiBtn = document.getElementById("wiki-button");
+
 function showScenarioBtns() {
     selectionText.innerHTML = "Please select a Scenario:";
     scenarioBtn1.hidden = false;
@@ -57,4 +60,13 @@ document.addEventListener("DOMContentLoaded", function() {
             scenarioBtn1.disabled = true;
         };
     };
+
+    discordBtn.onclick = function() {
+        window.location.href = "https://discord.gg/v99n6bdAyH";
+    }
+
+    wikiBtn.onclick = function() {
+        window.location.href = "https://zirdgal.github.io/OverTheCeeGuide";
+    }
+
 });

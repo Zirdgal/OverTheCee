@@ -50,9 +50,9 @@ a {
     position: relative;
 }
 #play-button {
-    height: 5vh;
-    width: 5vw;
-    font-size: 2vh;
+    height: 10vh;
+    width: 10vw;
+    font-size: 4vh;
 }
 #background-img, #background-img-coloured {
     position: absolute;
@@ -159,4 +159,20 @@ a {
     width: 8vw;
     height: 15vh;
     font-size: 5vh;
+}
+
+
+#icon-section {
+    position: absolute;
+    height: 8vh;
+    width: 10vw;
+    z-index: 10;
+    top: 92vh;
+    display: flex;
+    flex-direction: row;
+}
+.icon-button {
+    height: 8vh;
+    width: 5vw;
+    font-size: 4vh;
 }
