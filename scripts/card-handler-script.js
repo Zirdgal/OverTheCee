@@ -111,6 +111,10 @@
                             modalBtn2.style.display = "inline-block";
                         }
 
+                        if (card.option2 === "alliedShips") {
+                            modalBtn2.innerHTML = "Shore Bombardment";
+                        };
+
                         const actions = {
                             "March": (level) => {
                                 stateSelectionModalStyle();
