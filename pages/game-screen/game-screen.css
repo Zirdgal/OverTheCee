@@ -407,6 +407,11 @@ input.selected-state-action-input {
     height: 75vh;
     overflow-y: auto;
     overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+#card-container::-webkit-scrollbar {
+    display: none;
 }
 .card-button {
     margin: 2vh 1vw;
