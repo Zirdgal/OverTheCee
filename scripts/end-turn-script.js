@@ -113,24 +113,26 @@ endTurnButton.onclick = function endTurn() {
 
     moveSovietUnits();
 
-    enemyCards.forEach(card => {
-        enemyCardImage.style.display = "block";
-
-        if (card.name === "Placeholder") {
-            subtractResources(2);
-        }
-    });
-
-    setTimeout(continueGame, 2500);
-
-    function continueGame() {
-        console.log("continuing game?");
-        modal.style.display = "none";
-        modal.style.pointerEvents = "none";
-
-        cards.forEach(card => {
-            card.used = false;
-            updateCardStates();
+    if (!(states[2].ownedBy === "sov")) {
+        enemyCards.forEach(card => {
+            enemyCardImage.style.display = "block";
+    
+            if (card.name === "Placeholder") {
+                subtractResources(2);
+            }
         });
+    
+        setTimeout(continueGame, 2500);
+    
+        function continueGame() {
+            console.log("continuing game?");
+            modal.style.display = "none";
+            modal.style.pointerEvents = "none";
+    
+            cards.forEach(card => {
+                card.used = false;
+                updateCardStates();
+            });
+        }
     }
 };
