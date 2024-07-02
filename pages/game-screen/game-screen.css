@@ -87,7 +87,7 @@ div.resource-block {
 
 .state-img:hover,
 .city-img:hover {
-    filter: sepia(60%);
+    filter: sepia(60%) !important;
 }
 
 .map-container {
