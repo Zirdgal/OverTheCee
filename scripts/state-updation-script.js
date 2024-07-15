@@ -1,5 +1,5 @@
 import { states } from "../data/stateData.js";
-import { loseGame } from "./win-lose-handler-script.js";
+import { loseGame, winGame } from "./win-lose-handler-script.js";
 
 // For Changing states to Latvian owned
 export function updateStateImages() {
@@ -15,6 +15,10 @@ export function updateStateImages() {
         // Lose game script
         if (state.id === "liepaja" && state.ownedBy === "sov") {
             loseGame();
+        }
+        // Win game script
+        if (state.id === "cesis" && state.ownedBy === "lat") {
+            winGame();
         }
     });
 }
