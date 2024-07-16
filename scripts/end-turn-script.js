@@ -4,7 +4,7 @@ import { updateCardStates } from "./card-handler-script.js";
 import { updateAllUnitImages } from "./unit-handler-script.js";
 import { subtractResources } from "./resource-handler-script.js";
 import { handleCombat } from "./combat-handler-script.js";
-import { updateStateImages, updateLithuania } from "./state-updation-script.js";
+import { gameLostState, updateStateImages, updateLithuania } from "./state-updation-script.js";
 
 const endTurnButton = document.getElementById("end-turn-button");
 
@@ -113,7 +113,7 @@ endTurnButton.onclick = function endTurn() {
 
     moveSovietUnits();
 
-    if (!(states[2].ownedBy === "sov")) {
+    if (gameLostState === false) {
         enemyCards.forEach(card => {
             enemyCardImage.style.display = "block";
     

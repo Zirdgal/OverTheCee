@@ -24,8 +24,12 @@ function styleization() {
     }
 }
 
-export function loseGame() {
-    modalText.innerHTML = "You have lost! (Liepāja fell into Soviet Hands)";
+export function loseGame(x) {
+    if (x === 1) {
+        modalText.innerHTML = "You have lost! (Liepāja fell into Soviet Hands)";
+    } else {
+        modalText.innerHTML = "You have lost! (You have lost all Latvian Units)";
+    };
     styleization();
 };
 
