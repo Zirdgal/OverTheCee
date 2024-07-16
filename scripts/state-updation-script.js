@@ -8,18 +8,17 @@ export function updateStateImages() {
             state.path.src = "../../img/provinces/states/lat/state-" + state.id + ".png";
         } else if (state.ownedBy === "sov" && state.isDisabled === false) {
             state.path.src = "../../img/provinces/states/sov/state-" + state.id + ".png";
-        }
+        };
 
 
-
-        // Lose game script
-        if (state.id === "liepaja" && state.ownedBy === "sov") {
-            loseGame();
-        }
         // Win game script
         if (state.id === "cesis" && state.ownedBy === "lat") {
             winGame();
-        }
+        };
+        // Lose game script
+        if (state.id === "liepaja" && state.ownedBy === "sov") {
+            loseGame();
+        };
     });
 }
 
