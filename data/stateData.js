@@ -180,7 +180,7 @@ let germanyData = {
     ownedBy: "ger"
 };
 let ussrData = { 
-    name: "Union of Soviet Socialist Republics", id: "ussr", path: document.getElementById("country-ussr"), region: "Enemey", category: "country",
+    name: "Union of Soviet Socialist Republics", id: "ussr", path: document.getElementById("country-ussr"), region: "Enemy", category: "country",
     ownedBy: "sov"
 };
 
