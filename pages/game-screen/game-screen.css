@@ -38,6 +38,9 @@ div.resource-block {
     display: flex;
     font-size: 2vh;
 }
+button {
+    font-family: rubik-custom-font;
+}
 
 #resource-block-2 {
     background-color: lightgray;
@@ -56,26 +59,42 @@ div.resource-block {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    font-family: rubik-custom-font;
 }
 
 /* Modal Content/Box */
 #modal-content {
     background-color: #fefefe;
     color: black;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 33%; /* Could be more or less, depending on screen size */
+    width: 17vw;
+    text-align: center;
+    border-radius: 15px;
 }
-#enemy-card-img {
+.card-img {
     position: absolute;
     display: none;
     height: 50vh;
     top: 25vh;
     left: 40vw;
     width: auto;
+    border-radius: 15px;
 }
-
+#modal-btn-container {
+    display: flex;
+    justify-content: space-around;
+}
+#modal-btn-3 {
+    position: absolute;
+    top: 80vh;
+    left: 40vw;
+    width: 19.3vw;
+    height: 10vh;
+    font-size: 5vh;
+    font-family: rubik-custom-font;
+}
 
 
 
