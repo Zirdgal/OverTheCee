@@ -9,6 +9,7 @@ function styleization() {
     modal.style.pointerEvents = "auto";
     modal.style.backgroundColor = "rgba(0,0,0,0.4)";
     modalContent.style.marginTop = "25%";
+    modalContent.style.width = "33vw";
     modal.style.display = "block";
     modalBtn1.style.display = "inline-block";
     modalBtn1.innerHTML = "Play again"

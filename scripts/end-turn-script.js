@@ -13,8 +13,10 @@ const modal = document.getElementById("modal-container");
 const modalContent = document.getElementById("modal-content");
 const modalBtn1 = document.getElementById("modal-btn-1");
 const modalBtn2 = document.getElementById("modal-btn-2");
+const modalBtn3 = document.getElementById("modal-btn-3");
 const modalText = document.getElementById("modal-text");
 const enemyCardImage = document.getElementById("enemy-card-img");
+const friendlyCardImage = document.getElementById("friendly-card-img");
 
 const selectedStateActionButton1 = document.getElementById("selected-state-action-button-1");
 const selectedStateActionButton2 = document.getElementById("selected-state-action-button-2");
@@ -39,10 +41,14 @@ endTurnButton.onclick = function endTurn() {
     modal.style.pointerEvents = "auto";
     modal.style.backgroundColor = "rgba(0,0,0,0.2)";
     modalContent.style.marginTop = "10vh";
+    modalContent.style.display = "block";
     modalText.innerHTML = "The Soviets Turn:";
     modal.style.display = "block";
     modalBtn1.style.display = "none";
     modalBtn2.style.display = "none";
+    modalBtn3.style.display = "none";
+    friendlyCardImage.style.display = "none";
+
 
     selectedStateActionButton1.style.display = "none";
     selectedStateActionButton2.style.display = "none";
