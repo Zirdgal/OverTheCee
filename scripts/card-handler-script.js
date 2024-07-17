@@ -8,6 +8,8 @@ import { states } from "../data/stateData.js";
 import { attachStateClickListeners } from "./sidebar-script.js"; 
 import { disableEndTurnButton, enableEndTurnButton } from "./end-turn-script.js";
 
+import { cardSelectionView, clearCardSelectionView } from "./card-selection-view.js";
+
 // this is all for movement idk why it just is
 let totalDivs = null;
 let isTheCardSelected = false;
@@ -20,8 +22,10 @@ const modal = document.getElementById("modal-container");
 const modalContent = document.getElementById("modal-content");
 const modalBtn1 = document.getElementById("modal-btn-1");
 const modalBtn2 = document.getElementById("modal-btn-2");
+const modalBtn3 = document.getElementById("modal-btn-3");
 const modalText = document.getElementById("modal-text");
 const enemyCardImage = document.getElementById("enemy-card-img");
+const friendlyCardImage = document.getElementById("friendly-card-img");
 
 const fullScreenCover = document.getElementById("full-screen-cover");
 
@@ -34,26 +38,16 @@ const selectedStateActionText = document.getElementById("selected-state-action-t
 const selectedStateActionInput1 = document.getElementById("selected-state-action-input-1");
 const selectedStateActionInput2 = document.getElementById("selected-state-action-input-2");
 
-function resetModalStyle() {
-    modal.style.pointerEvents = "auto";
-    modal.style.backgroundColor = "rgba(0,0,0,0.4)";
-    modalContent.style.marginTop = "25%";
-    modalText.innerHTML = "Please select an option:";
-    modal.style.display = "block";
-    modalBtn1.style.display = "inline-block";
-    modalBtn2.style.display = "inline-block";
-    enemyCardImage.style.display = "none";
-    return;
-}
-
 function stateSelectionModalStyle() {
     modal.style.backgroundColor = "transparent";
     modal.style.pointerEvents = "none";
     modalContent.style.marginTop = "5%";
     modalBtn1.style.display = "none";
     modalBtn2.style.display = "none";
+    modalBtn3.style.display = "none";
     modalText.innerHTML = "Please select a state...";
     enemyCardImage.style.display = "none";
+    friendlyCardImage.style.display = "none";
     return;
 }
 
@@ -91,6 +85,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 isTheCardSelected = true;
                 let antiReSelectRule = false;
+                let cardID = card.id
+                console.log(`cardID: ${cardID}`);
                 selectedStateActionButton1.disabled = false;
                 selectedStateActionButton2.disabled = false;
                 disableEndTurnButton();
@@ -101,7 +97,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     subtractResources(card.cost);
                     console.log("current resource count:");
                     console.log(resourceCount);
-                    resetModalStyle();
+                    console.log(`cardID b4 func: ${cardID}`);
+                    cardSelectionView(cardID);
                     modalBtn1.innerHTML = `${card.option1} ${card.option1Level}`;
                     modalBtn2.innerHTML = `${card.option2} ${card.option2Level}`;
 
@@ -453,6 +450,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     modalBtn2.onclick = function() {
                         handleAction(card.option2, card.option2Level);
                     };
+
+                    modalBtn3.onclick = function() {
+                        isTheCardSelected = false;
+                        enableEndTurnButton();
+                        clearCardSelectionView();
+                    };
+
                 } else {
                     isTheCardSelected = false;
                     enableEndTurnButton();
