@@ -21,8 +21,11 @@ export function cardSelectionView(cardID) {
             modal.style.backgroundColor = "rgba(0,0,0,0.4)";
             modalContent.style.marginTop = "10vh";
             modalContent.style.marginLeft = "40vw";
+            modalContent.style.width = "17vw";
             modalText.innerHTML = "Please select an option:";
             modal.style.display = "block";
+            modalContent.style.display = "block";
+            modalText.style.display = "block";
             modalBtn1.style.display = "inline-block";
             modalBtn2.style.display = "inline-block";
             modalBtn3.style.display = "block";
