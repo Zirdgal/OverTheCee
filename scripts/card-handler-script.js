@@ -42,6 +42,7 @@ function stateSelectionModalStyle() {
     modal.style.backgroundColor = "transparent";
     modal.style.pointerEvents = "none";
     modalContent.style.marginTop = "5%";
+    modalContent.style.width = "25vw";
     modalBtn1.style.display = "none";
     modalBtn2.style.display = "none";
     modalBtn3.style.display = "none";
@@ -455,6 +456,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         isTheCardSelected = false;
                         enableEndTurnButton();
                         clearCardSelectionView();
+                        addResources(card.cost);
                     };
 
                 } else {
