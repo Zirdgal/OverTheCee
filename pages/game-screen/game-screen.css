@@ -432,7 +432,7 @@ input.selected-state-action-input {
 #card-container::-webkit-scrollbar {
     display: none;
 }
-.card-button {
+.card-button, .disabled-card-button {
     margin: 2vh 1vw;
     width: 9.3vw;
     height: 25vh;
@@ -440,7 +440,7 @@ input.selected-state-action-input {
     padding: 0;
     background: none;
 }
-.card-button img {
+.card-button img, .disabled-card-button img {
     position: relative;
     margin: 0px;
     height: auto;
@@ -449,6 +449,9 @@ input.selected-state-action-input {
     border-radius: 10px;
 }
 
+.disabled-card-button {
+    display: none;
+}
 
 
 
