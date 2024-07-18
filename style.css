@@ -60,6 +60,13 @@ a {
     height: 10vh;
     width: 10vw;
     font-size: 4vh;
+    background-color: black;
+    border: solid 1px black;
+    color: white;
+    border-radius: 15px;
+}
+#play-button:hover {
+    color: gray;
 }
 #background-img, #background-img-coloured {
     position: absolute;
@@ -182,4 +189,11 @@ a {
     height: 8vh;
     width: 5vw;
     font-size: 4vh;
+    background-color: black;
+    border: solid 1px black;
+    color: white;
+    border-radius: 10px;
+}
+.icon-button:hover {
+    color: gray;
 }
