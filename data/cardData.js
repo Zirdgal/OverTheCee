@@ -1,15 +1,92 @@
-const marchData = { name: "March", id: "march", used: false, path: "./img/cards/march.png", cost: 0, option1: "March", option1Level: 2, option2: "Recruit", option2Level: 2 };
-const recruitData = { name: "Recruit", id: "recruit" , used: false, path: "./img/cards/recruit.png", cost: 0, option1: "Recruit", option1Level: 2, option2: "Resource", option2Level: 2 };
-const equipmentData = { name: "Equipment", id: "equipment" , used: false, path: "./img/cards/equipment.png", cost: 0, option1: "Resource", option1Level: 2, option2: "March", option2Level: 2 };
-const karlisUlmanisData = { name: "Kārlis Ulmanis", id: "karlisUlmanis", used: false, path: "./img/cards/karlisUlmanis.png", cost: 2, option1: "Resource", option1Level: 5, option2: "none", option2Level: 0 };
-const m1890Data = { name: "M-1890", id: "m1890", used: false, path: "./img/cards/m1890.png", cost: 0, option1: "March", option1Level: 1, option2: "none", option2Level: 0 };
-const m1902Data = { name: "M-1902", id: "m1902", used: false, path: "./img/cards/m1902.png", cost: 1, option1: "March", option1Level: 2, option2: "none", option2Level: 0 };
-const m1910Data = { name: "M-1910", id: "m1910", used: false, path: "./img/cards/m1910.png", cost: 2, option1: "March", option1Level: 3, option2: "none", option2Level: 0 };
-const alliedShipsData = { name: "English and French War Fleet", id: "alliedShips", used: false, path: "./img/cards/alliedShips.png", cost: 1, option1: "Resource", option1Level: 2, option2: "alliedShips", option2Level: 1 };
+// cardData.js
+const marchData = { 
+    name: "March", id: "march", used: false, path: "./img/cards/march.png", cost: 0, 
+    option1: [
+        { name: "March", level: 2 }, 
+    ] ,
+    option2: [
+        { name: "Recruit", level: 2 }
+    ]
+};
+const recruitData = { 
+    name: "Recruit", id: "recruit", used: false, path: "./img/cards/recruit.png", cost: 0, 
+    option1: [
+        { name: "Recruit", level: 2 }, 
+    ] ,
+    option2: [
+        { name: "Resource", level: 2 }
+    ]
+};
+const equipmentData = { 
+    name: "Equipment", id: "equipment", used: false, path: "./img/cards/equipment.png", cost: 0, 
+    option1: [
+        { name: "Resource", level: 2 }, 
+    ] ,
+    option2: [
+        { name: "March", level: 2 }
+    ]
+};
+const karlisUlmanisData = { 
+    name: "Kārlis Ulmanis", id: "karlisUlmanis", used: false, path: "./img/cards/karlisUlmanis.png", cost: 2, 
+    option1: [
+        { name: "Resource", level: 5 }, 
+    ] ,
+    option2: [
+        { name: "None", level: 1 }
+    ]
+};
+const m1890Data = { 
+    name: "M-1890", id: "m1890", used: false, path: "./img/cards/m1890.png", cost: 0, 
+    option1: [
+        { name: "March", level: 1 }, 
+    ] ,
+    option2: [
+        { name: "None", level: 1 }
+    ]
+};
+const m1902Data = { 
+    name: "M-1902", id: "m1902", used: false, path: "./img/cards/m1902.png", cost: 1, 
+    option1: [
+        { name: "March", level: 2 }, 
+    ] ,
+    option2: [
+        { name: "None", level: 1 }
+    ]
+};
+const m1910Data = { 
+    name: "M-1910", id: "m1910", used: false, path: "./img/cards/m1910.png", cost: 2, 
+    option1: [
+        { name: "March", level: 3 }, 
+    ] ,
+    option2: [
+        { name: "None", level: 1 }
+    ]
+};
+const alliedShipsData = { 
+    name: "English and French War Fleet", id: "alliedShips", used: false, path: "./img/cards/alliedShips.png", cost: 1, 
+    option1: [
+        { name: "Resource", level: 2 }, 
+    ] ,
+    option2: [
+        { name: "alliedShips", level: 1 }
+    ]
+};
+const jorgisZemitansData = { 
+    name: "Jorģis Zemitāns", id: "jorgisZemitans", used: false, path: "./img/cards/jorgisZemitans.png", cost: 2, 
+    option1: [
+        { name: "Draw", level: 1},
+        { name: "March", level: 3 }
+    ] ,
+    option2: [
+        { name: "Draw", level: 1},
+        { name: "Recruit", level: 3 }
+    ]
+};
 
-export const cards = [ marchData, karlisUlmanisData, recruitData, m1890Data, m1902Data, m1910Data, alliedShipsData, equipmentData ];
+export const cards = [ marchData, karlisUlmanisData, recruitData, m1890Data, m1902Data, m1910Data, alliedShipsData, equipmentData, jorgisZemitansData ];
 export const starterCards = [ marchData, recruitData, equipmentData ];
-export const regCards = [ karlisUlmanisData, m1890Data, m1902Data, m1910Data, alliedShipsData];
+export const regCards = [ karlisUlmanisData, m1890Data, m1902Data, m1910Data, alliedShipsData, jorgisZemitansData];
+
 
 //Enemy Cards
 const placeholderData = { name: "Placeholder", used: false };
