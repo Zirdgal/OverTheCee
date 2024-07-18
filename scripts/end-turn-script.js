@@ -1,10 +1,11 @@
-import { cards, enemyCards } from "../data/cardData.js";
+import { cards, enemyCards, openCardSlots, regCards } from "../data/cardData.js";
 import { states } from "../data/stateData.js";
 import { updateCardStates } from "./card-handler-script.js";
 import { updateAllUnitImages } from "./unit-handler-script.js";
 import { subtractResources } from "./resource-handler-script.js";
 import { handleCombat } from "./combat-handler-script.js";
 import { gameLostState, updateStateImages, updateLithuania } from "./state-updation-script.js";
+import { drawRandomRegularCard } from "./deck-handler-script.js";
 
 const endTurnButton = document.getElementById("end-turn-button");
 
@@ -48,7 +49,6 @@ endTurnButton.onclick = function endTurn() {
     modalBtn2.style.display = "none";
     modalBtn3.style.display = "none";
     friendlyCardImage.style.display = "none";
-
 
     selectedStateActionButton1.style.display = "none";
     selectedStateActionButton2.style.display = "none";
@@ -110,12 +110,12 @@ endTurnButton.onclick = function endTurn() {
 
                             // Stop moving more units into the same Latvian state to avoid dogpiling
                             break;
-                        }
-                    }
-                }
-            }
-        }
-    }
+                        };
+                    };
+                };
+            };
+        };
+    };
 
     moveSovietUnits();
 
@@ -135,10 +135,11 @@ endTurnButton.onclick = function endTurn() {
             modal.style.display = "none";
             modal.style.pointerEvents = "none";
     
-            cards.forEach(card => {
-                card.used = false;
-                updateCardStates();
+            openCardSlots.forEach(cardSlot => {
+                if (cardSlot.used === true) {
+                    drawRandomRegularCard(cardSlot, regCards);
+                };
             });
-        }
-    }
+        };
+    };
 };
