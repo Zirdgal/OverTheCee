@@ -392,7 +392,7 @@ button {
 }
 #sidebar-top-half-container {
     width: 100%;
-    height: 20%;
+    height: 15%;
     padding-top: 10%;
     display: flex;
     flex-direction: column;
@@ -402,13 +402,18 @@ button {
 #home-button {
     position: absolute;
 }
+#selected-state-action-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 button.selected-state-action-buttons {
     display: none;
 }
 #selected-state-action-text-container {
     display: none;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 input.selected-state-action-input {
     display: none;
@@ -416,7 +421,7 @@ input.selected-state-action-input {
 
 #sidebar-bottom-half-container {
     width: 100%;
-    height: 70%;
+    height: 75%;
 }
 
 #card-container {
