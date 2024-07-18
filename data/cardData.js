@@ -2,7 +2,7 @@
 const marchData = { 
     name: "March", id: "march", used: false, path: "./img/cards/march.png", cost: 0, 
     option1: [
-        { name: "March", level: 2 }, 
+        { name: "March", level: 2 }
     ] ,
     option2: [
         { name: "Recruit", level: 2 }
@@ -11,8 +11,8 @@ const marchData = {
 const recruitData = { 
     name: "Recruit", id: "recruit", used: false, path: "./img/cards/recruit.png", cost: 0, 
     option1: [
-        { name: "Recruit", level: 2 }, 
-    ] ,
+        { name: "Recruit", level: 2 }
+    ],
     option2: [
         { name: "Resource", level: 2 }
     ]
@@ -20,8 +20,8 @@ const recruitData = {
 const equipmentData = { 
     name: "Equipment", id: "equipment", used: false, path: "./img/cards/equipment.png", cost: 0, 
     option1: [
-        { name: "Resource", level: 2 }, 
-    ] ,
+        { name: "Resource", level: 2 }
+    ],
     option2: [
         { name: "March", level: 2 }
     ]
@@ -72,7 +72,7 @@ const alliedShipsData = {
     ]
 };
 const jorgisZemitansData = { 
-    name: "Jorģis Zemitāns", id: "jorgisZemitans", used: false, path: "./img/cards/jorgisZemitans.png", cost: 2, 
+    name: "Jorģis Zemitāns", id: "jorgisZemitans", used: false, path: "./img/cards/jorgisZemitans.png", cost: 3, 
     option1: [
         { name: "Draw", level: 1},
         { name: "March", level: 3 }
@@ -82,10 +82,32 @@ const jorgisZemitansData = {
         { name: "Recruit", level: 3 }
     ]
 };
+const imantaData = { 
+    name: "Imanta Armoured Car", id: "imanta", used: false, path: "./img/cards/imanta.png", cost: 2, 
+    option1: [
+        { name: "Draw", level: 1},
+        { name: "March", level: 2 }
+    ] ,
+    option2: [
+        { name: "Draw", level: 1},
+        { name: "Recruit", level: 2 }
+    ]
+};
+const kurzemnieksData = { 
+    name: "Kurzemnieks Armoured Car", id: "kurzemnieks", used: false, path: "./img/cards/kurzemnieks.png", cost: 2, 
+    option1: [
+        { name: "Draw", level: 1},
+        { name: "March", level: 2 }
+    ] ,
+    option2: [
+        { name: "Draw", level: 1},
+        { name: "Recruit", level: 2 }
+    ]
+};
 
-export const cards = [ marchData, karlisUlmanisData, recruitData, m1890Data, m1902Data, m1910Data, alliedShipsData, equipmentData, jorgisZemitansData ];
+export const cards = [ marchData, karlisUlmanisData, recruitData, m1890Data, m1902Data, m1910Data, alliedShipsData, equipmentData, jorgisZemitansData, imantaData, kurzemnieksData ];
 export const starterCards = [ marchData, recruitData, equipmentData ];
-export const regCards = [ karlisUlmanisData, m1890Data, m1902Data, m1910Data, alliedShipsData, jorgisZemitansData];
+export const regCards = [ karlisUlmanisData, m1890Data, m1902Data, m1910Data, alliedShipsData, jorgisZemitansData, imantaData, kurzemnieksData ];
 
 
 //Enemy Cards
@@ -115,5 +137,5 @@ const openCardSlot15 = { id: "slot15", used: true, img: document.getElementById(
 const openCardSlot16 = { id: "slot16", used: true, img: document.getElementById("open-card-slot-16-img"), btn: document.getElementById("open-card-slot-16"), currentCardID: "none" };
 
 export const openCardSlots = [ openCardSlot1, openCardSlot2, openCardSlot3, openCardSlot4, openCardSlot5, openCardSlot6, openCardSlot7, openCardSlot8, openCardSlot9, openCardSlot10, openCardSlot11, openCardSlot12 ];
-export const everyCardSlots = [openCardSlot1, openCardSlot2, openCardSlot3, openCardSlot4, openCardSlot5, openCardSlot6, openCardSlot7, openCardSlot8, openCardSlot9, openCardSlot10, openCardSlot11, openCardSlot12, openCardSlot13, openCardSlot14, openCardSlot15, openCardSlot16 ];
+export const everyCardSlots = [ openCardSlot1, openCardSlot2, openCardSlot3, openCardSlot4, openCardSlot5, openCardSlot6, openCardSlot7, openCardSlot8, openCardSlot9, openCardSlot10, openCardSlot11, openCardSlot12, openCardSlot13, openCardSlot14, openCardSlot15, openCardSlot16 ];
 
