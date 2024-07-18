@@ -51,9 +51,10 @@ export function updateCardStates() {
         } else {
             cardSlot.btn.style.display = "none";
             cardSlot.id = "";
-        }
+        };
+        return;
     });
-}
+};
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -215,6 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                                                                 isTheCardSelected = false;
                                                                                                 abortController.abort();
                                                                                                 card.used = true;
+                                                                                                cardSlot.used = true;
                                                                                                 clearCardSelectionView();
                                                                                                 updateCardStates();
                                                                                                 enableEndTurnButton();
@@ -304,6 +306,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                                 isCardUsed = true;
                                                                 isTheCardSelected = false;
                                                                 card.used = true;
+                                                                cardSlot.used = true;
                                                                 selectedStateActionButton1.style.display = "none";
                                                                 selectedStateActionButton2.style.display = "none";
                                                                 clearCardSelectionView();
@@ -338,6 +341,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                                 isCardUsed = true;
                                                                 isTheCardSelected = false;
                                                                 card.used = true;
+                                                                cardSlot.used = true;
                                                                 selectedStateActionButton1.style.display = "none";
                                                                 selectedStateActionButton2.style.display = "none";
                                                                 clearCardSelectionView();
@@ -459,16 +463,14 @@ document.addEventListener("DOMContentLoaded", function() {
         
                             modalBtn1.onclick = function() {
                                 handleAction(card.option1[0].name, card.option1[0].level);
-                                if (card.id === "jorgisZemitans") {
-                                    console.log(`handling Zemitaana 1 action`);
+                                if (typeof card.option1[1] != "undefined") {
                                     handleAction(card.option1[1].name, card.option1[1].level);
                                 };
                             };
         
                             modalBtn2.onclick = function() {
                                 handleAction(card.option2[0].name, card.option2[0].level);
-                                if (card.id === "jorgisZemitans") {
-                                    console.log(`handling Zemitaana 2 action`);
+                                if (typeof card.option2[1] != "undefined") {
                                     handleAction(card.option2[1].name, card.option2[1].level);
                                 };
                             };
