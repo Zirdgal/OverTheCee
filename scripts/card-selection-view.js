@@ -46,4 +46,23 @@ export function clearCardSelectionView() {
     modalText.style.display = "none";
     enemyCardImage.style.display = "none";
     friendlyCardImage.style.display = "none";
+    return;
 }
+
+export function stateSelectionView() {
+    modal.style.display = "block";
+    modal.style.backgroundColor = "transparent";
+    modal.style.pointerEvents = "none";
+    modalContent.style.marginTop = "5%";
+    modalContent.style.width = "25vw";
+    modalContent.style.display = "block";
+    modalBtn1.style.display = "none";
+    modalBtn2.style.display = "none";
+    modalBtn3.style.display = "none";
+    modalText.innerHTML = "Please select a state...";
+    modalText.style.display = "block";
+    enemyCardImage.style.display = "none";
+    friendlyCardImage.style.display = "none";
+    return;
+};
+
