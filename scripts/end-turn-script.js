@@ -138,6 +138,9 @@ endTurnButton.onclick = function endTurn() {
             openCardSlots.forEach(cardSlot => {
                 if (cardSlot.used === true) {
                     drawRandomRegularCard(cardSlot, regCards);
+                    updateStateImages();
+                    updateAllUnitImages();
+                    updateLithuania();
                 };
             });
         };
