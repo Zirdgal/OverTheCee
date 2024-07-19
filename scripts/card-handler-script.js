@@ -154,6 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                                             if (
                                                                 totalRequestedDivs <= 5 && 
                                                                 totalRequestedDivs > 0 &&
+                                                                totalRequestedDivs < totalDivs &&
                                                                 latRequestedDivs <= state.latUnits &&
                                                                 gerRequestedDivs <= state.gerUnits
                                                             ) {
