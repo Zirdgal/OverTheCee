@@ -1,4 +1,7 @@
-﻿const modal = document.getElementById("modal-container");
+﻿
+import { endGameView } from "./card-selection-view.js";
+
+const modal = document.getElementById("modal-container");
 const modalContent = document.getElementById("modal-content");
 const modalBtn1 = document.getElementById("modal-btn-1");
 const modalBtn2 = document.getElementById("modal-btn-2");
@@ -6,16 +9,8 @@ const modalText = document.getElementById("modal-text");
 const enemyCardImage = document.getElementById("enemy-card-img");
 
 function styleization() {
-    modal.style.pointerEvents = "auto";
-    modal.style.backgroundColor = "rgba(0,0,0,0.4)";
-    modalContent.style.marginTop = "25%";
-    modalContent.style.width = "33vw";
-    modal.style.display = "block";
-    modalBtn1.style.display = "inline-block";
-    modalBtn1.innerHTML = "Play again"
-    modalBtn2.style.display = "inline-block";
-    modalBtn2.innerHTML = "Return Home"
-    enemyCardImage.style.display = "none";
+
+    endGameView();
 
     modalBtn1.onclick = function playAgain() {
         location.reload(); 
