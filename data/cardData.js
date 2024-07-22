@@ -82,6 +82,15 @@ const jorgisZemitansData = {
         { name: "Recruit", level: 3 }
     ]
 };
+const peterisRadzinsData = { 
+    name: "Pēteris Radziņš", id: "peterisRadzins", used: false, path: "./img/cards/peterisRadzins.png", cost: 2, 
+    option1: [
+        { name: "March", level: 3 }
+    ] ,
+    option2: [
+        { name: "Resource", level: 4 }
+    ]
+};
 const imantaData = { 
     name: "Imanta Armoured Car", id: "imanta", used: false, path: "./img/cards/imanta.png", cost: 2, 
     option1: [
@@ -105,16 +114,16 @@ const kurzemnieksData = {
     ]
 };
 
-export const cards = [ marchData, karlisUlmanisData, recruitData, m1890Data, m1902Data, m1910Data, alliedShipsData, equipmentData, jorgisZemitansData, imantaData, kurzemnieksData ];
+export const cards = [ marchData, karlisUlmanisData, recruitData, m1890Data, m1902Data, m1910Data, alliedShipsData, equipmentData, jorgisZemitansData, peterisRadzinsData, imantaData, kurzemnieksData ];
 export const starterCards = [ marchData, recruitData, equipmentData ];
-export const regCards = [ karlisUlmanisData, m1890Data, m1902Data, m1910Data, alliedShipsData, jorgisZemitansData, imantaData, kurzemnieksData ];
+export const regCards = [ karlisUlmanisData, m1890Data, m1902Data, m1910Data, alliedShipsData, jorgisZemitansData, peterisRadzinsData, imantaData, kurzemnieksData ];
 
 
 //Enemy Cards
-const placeholderData = { name: "Placeholder", used: false };
+const resourceConstraintsData = { name: "Resource Constraints", id: "resourceConstraints", used: false, path: "./img/cards/enemy/resourceConstraints.png" };
 
 
-export const enemyCards = [ placeholderData ];
+export const enemyCards = [ resourceConstraintsData ];
 
 
 
