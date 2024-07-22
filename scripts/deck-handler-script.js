@@ -56,4 +56,23 @@ export function detectOpenCardSlots(number) {
         };
     });
 };
+export function detectOpenCardSlotsAndInsertEstablishedCard(number, card) {
+    console.log('detectOpenCardSlotsAndInsertEstablishedCard has initiated');
 
+    let processedCount = 0;
+
+    everyCardSlots.forEach(everyCardSlot => {
+        // Continue drawing cards until the required number is reached
+        if (processedCount < number && everyCardSlot.used === true) {
+            // Draw a card and update the slot
+            everyCardSlot.img.src = `../.${card.path}`;  // Ensure to set the src property of the image element
+            everyCardSlot.currentCardID = card.id; // Changes the current card ID so it knows what it is doing
+            everyCardSlot.btn.style.display = "block";
+        
+            // Mark the card slot as not used anymore
+            everyCardSlot.used = false;
+            processedCount++;
+            console.log(`processedCount is ${processedCount}`);
+        };
+    });
+};
