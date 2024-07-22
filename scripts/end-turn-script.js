@@ -1,31 +1,18 @@
-import { cards, enemyCards, openCardSlots, regCards } from "../data/cardData.js";
+import { enemyCards, openCardSlots, regCards } from "../data/cardData.js";
 import { states } from "../data/stateData.js";
-import { updateCardStates } from "./card-handler-script.js";
 import { updateAllUnitImages } from "./unit-handler-script.js";
 import { subtractResources } from "./resource-handler-script.js";
 import { handleCombat } from "./combat-handler-script.js";
 import { gameLostState, updateStateImages, updateLithuania } from "./state-updation-script.js";
 import { drawRandomRegularCard } from "./deck-handler-script.js";
+import { clickSFX } from "../data/soundData.js";
+import { endTurnView } from "./card-selection-view.js";
 
 const endTurnButton = document.getElementById("end-turn-button");
 
 // modal elements
 const modal = document.getElementById("modal-container");
-const modalContent = document.getElementById("modal-content");
-const modalBtn1 = document.getElementById("modal-btn-1");
-const modalBtn2 = document.getElementById("modal-btn-2");
-const modalBtn3 = document.getElementById("modal-btn-3");
-const modalText = document.getElementById("modal-text");
 const enemyCardImage = document.getElementById("enemy-card-img");
-const friendlyCardImage = document.getElementById("friendly-card-img");
-
-const selectedStateActionButton1 = document.getElementById("selected-state-action-button-1");
-const selectedStateActionButton2 = document.getElementById("selected-state-action-button-2");
-
-const selectedStateActionText = document.getElementById("selected-state-action-text-container");
-
-const selectedStateActionInput1 = document.getElementById("selected-state-action-input-1");
-const selectedStateActionInput2 = document.getElementById("selected-state-action-input-2");
 
 export function disableEndTurnButton() {
     endTurnButton.disabled = true;
@@ -39,22 +26,8 @@ export function enableEndTurnButton() {
 endTurnButton.onclick = function endTurn() {
     console.log("end turn button clicked");
 
-    modal.style.pointerEvents = "auto";
-    modal.style.backgroundColor = "rgba(0,0,0,0.2)";
-    modalContent.style.marginTop = "10vh";
-    modalContent.style.display = "block";
-    modalText.innerHTML = "The Soviets Turn:";
-    modal.style.display = "block";
-    modalBtn1.style.display = "none";
-    modalBtn2.style.display = "none";
-    modalBtn3.style.display = "none";
-    friendlyCardImage.style.display = "none";
-
-    selectedStateActionButton1.style.display = "none";
-    selectedStateActionButton2.style.display = "none";
-    selectedStateActionText.style.display = "none";
-    selectedStateActionInput1.style.display = "none";
-    selectedStateActionInput2.style.display = "none";
+    clickSFX.play();
+    endTurnView();
 
     const updatedStates = new Set();
 
@@ -123,7 +96,7 @@ endTurnButton.onclick = function endTurn() {
         enemyCards.forEach(card => {
             enemyCardImage.style.display = "block";
     
-            if (card.name === "Placeholder") {
+            if (card.id === "resourceConstraints") {
                 subtractResources(2);
             }
         });
@@ -137,7 +110,6 @@ endTurnButton.onclick = function endTurn() {
     
             openCardSlots.forEach(cardSlot => {
                 if (cardSlot.used === true) {
-                    drawRandomRegularCard(cardSlot, regCards);
                     updateStateImages();
                     updateAllUnitImages();
                     updateLithuania();
