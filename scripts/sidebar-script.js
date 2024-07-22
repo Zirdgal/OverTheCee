@@ -6,6 +6,7 @@ import { clickSFX } from "../data/soundData.js";
 const btn = document.getElementById("sidebar-button");
 const sideBarContent = document.getElementById("sidebar-full-container");
 const endTurnButton = document.getElementById("end-turn-button");
+const storeButton = document.getElementById("shop-button");
 
 let sideBarState = false; // variable to just keep track if the sidebar is open
 
@@ -22,6 +23,7 @@ btn.onclick = function moveSideBar() { // if the sidebar button is clicked ...
         btn.innerHTML = "<"; // turn that arrow!
         sideBarState = true; // update the variable 
         endTurnButton.style.display = "block"; // (this is for when the player opens the game for the first time)
+        storeButton.style.display = "block"; // (this is for when the player opens the game for the first time)
     }
 };
 document.body.onkeyup = function(e) { // when any key is pressed

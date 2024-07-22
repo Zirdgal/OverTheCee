@@ -400,7 +400,7 @@ button {
     height: 5vh;
     pointer-events: all;
 }
-#end-turn-button {
+#end-turn-button, #shop-button {
     display: none;
 }
 #shop-button {
