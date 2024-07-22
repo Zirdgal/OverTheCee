@@ -30,25 +30,27 @@ function updateResources() {
     // Highlight only the resource block at the resourceCount index
     if (resourceCount > 0 && resourceCount <= allResourceObj.length) {
         allResourceObj[resourceCount - 1].style.backgroundColor = "lightgray";
-    }
+    };
 
     if (resourceCount === 0) {
         allResourceObj.forEach(obj => {
             obj.style.backgroundColor = "lightcoral";
-        })
-    }
-}
+        });
+    };
+    return;
+};
 
 export function addResources(addedResources) {
     resourceCount = Math.min(allResourceObj.length, resourceCount + Number(addedResources));
     updateResources();
     console.log("current resource count:");
     console.log(resourceCount);
-}
+};
 
 export function subtractResources(subtractedResources) {
     resourceCount = Math.max(0, resourceCount - Number(subtractedResources));
     updateResources();
     console.log("current resource count:");
     console.log(resourceCount);
-}
+    return;
+};
