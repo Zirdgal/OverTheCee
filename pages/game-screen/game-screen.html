@@ -9,9 +9,16 @@
     <link rel="stylesheet" href="game-screen.css">
     <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
 
+    <script src="https://kit.fontawesome.com/fe50138296.js" crossorigin="anonymous"></script>
+
     <title>Over The Cee</title>
 </head>
 <body>
+
+    <audio id="store-audio"><source src="../../sfx/store.wav" type="audio/wav"></audio>
+    <audio id="click-audio"><source src="../../sfx/click.wav" type="audio/wav"></audio>
+    <audio id="cha-ching-audio"><source src="../../sfx/chaChing.wav" type="audio/wav"></audio>
+
     <div id="full-screen-cover"><h1>Loading...</h1></div>
     <nav id="resource-container">
         <div class="resource-block" id="resource-block-1">
@@ -335,18 +342,20 @@
             </div>
         </div>
         <button id="sidebar-button"><strong>></strong></button>
-        <div>
-            <button id="end-turn-button">End Turn</button>
+        <div id="side-button-container">
+            <button class="side-button" id="shop-button"><i class="fa-solid fa-store"></i></button>
+            <button class="side-button" id="end-turn-button">End Turn</button>
         </div>
     </aside>
     <div id="modal-container">
         <div id="modal-content">
-            <img class="card-img" id="enemy-card-img" src="../../img/cards/enemy/placeholder.png">
+            <img class="card-img" id="enemy-card-img" src="../../img/cards/enemy/resourceConstraints.png">
             <img class="card-img" id="friendly-card-img" src="../../img/cards/m1890.png">
             <p id="modal-text"></p>
             <div id="modal-btn-container">
                 <button id="modal-btn-1"></button>
                 <button id="modal-btn-2"></button>
+                <button id="modal-btn-4"></button>
             </div>
             <button id="modal-btn-3">Cancel</button>
         </div>
@@ -356,5 +365,6 @@
     <script type="module" src="../../scripts/card-handler-script.js"></script>
     <script type="module" src="../../scripts/unit-handler-script.js"></script>
     <script type="module" src="../../scripts/deck-handler-script.js"></script>
+    <script type="module" src="../../scripts/store-handler-script.js"></script>
 </body>
 </html>

@@ -1,3 +1,6 @@
+
+import { clickSFX } from "../data/soundData.js";
+
 // Sidebar Movement
 
 const btn = document.getElementById("sidebar-button");
@@ -7,6 +10,9 @@ const endTurnButton = document.getElementById("end-turn-button");
 let sideBarState = false; // variable to just keep track if the sidebar is open
 
 btn.onclick = function moveSideBar() { // if the sidebar button is clicked ...
+
+    clickSFX.play();
+
     if (sideBarState === true) { // AND if the sidebar is open...
         sideBarContent.style.display = "none"; // close the bar
         btn.innerHTML = ">"; // make the sidebar arrow turn around
@@ -20,6 +26,9 @@ btn.onclick = function moveSideBar() { // if the sidebar button is clicked ...
 };
 document.body.onkeyup = function(e) { // when any key is pressed
     if ( e.key == " " || e.code == "Space" || e.keyCode == 32 ) { // if the key is the spacebar do the same as the above lmfao
+
+        clickSFX.play();
+
         if (sideBarState === true) { 
             sideBarContent.style.display = "none";
             btn.innerHTML = ">";
@@ -60,6 +69,7 @@ function attachStateClickListeners() {
     statesAndCountries.forEach(state => {
         state.path.addEventListener("click", function() {
             updateSelectedStateUI(state); // Update selected state UI
+            clickSFX.play();
         });
     });
 }
